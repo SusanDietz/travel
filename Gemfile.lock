@@ -60,6 +60,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     kgio (2.9.2)
+    libv8 (3.11.8.17)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -96,6 +97,7 @@ GEM
     rake (10.3.2)
     rdoc (3.12.2)
       json (~> 1.4)
+    ref (1.0.5)
     sass (3.3.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -112,6 +114,9 @@ GEM
       term-ansicolor
     term-ansicolor (1.2.2)
       tins (~> 0.8)
+    therubyracer (0.11.4)
+      libv8 (~> 3.11.8.12)
+      ref
     thor (0.19.1)
     tilt (1.4.1)
     tins (0.13.1)
@@ -140,5 +145,6 @@ DEPENDENCIES
   pg
   rails (= 3.2.16)
   sass-rails (~> 3.2.3)
+  therubyracer
   uglifier (>= 1.0.3)
   unicorn
