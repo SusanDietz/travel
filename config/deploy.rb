@@ -3,7 +3,7 @@ lock '3.1.0'
 
 server "217.23.138.165", user: "rj", roles: [:web, :app, :db], primary: true
 
-set :application, 'seo_tool'
+set :application, 'travel'
 set :repo_url, 'git@github.com:epifanov/travel.git'
 
 set :shared_path, "#{deploy_to}/shared"
@@ -13,7 +13,7 @@ set :rails_env, "production"
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :deploy_user, 'rj'
-set :rvm_ruby_version, "2.1.1"
+set :rvm_ruby_version, "1.9.3"
 
 namespace :deploy do
   after :publishing, :restart
