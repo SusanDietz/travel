@@ -1,27 +1,41 @@
-<h1>Listing leads</h1>
-
-<table>
-  <tr>
-    <th>Email</th>
-    <th>Source</th>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @leads.each do |lead| %>
-  <tr>
-    <td><%= lead.email %></td>
-    <td><%= lead.source %></td>
-    <td><%= lead.name %></td>
-    <td><%= link_to 'Show', lead %></td>
-    <td><%= link_to 'Edit', edit_lead_path(lead) %></td>
-    <td><%= link_to 'Destroy', lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Lead', new_lead_path %>
+<!doctype html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic,cyrillic-ext" type="text/css" rel="stylesheet">
+    <!--[if lt IE 9]><link href="https://new.landingi.com/bootstrap/css/ie8-grid.css?v=8.9.7" type="text/css" rel="stylesheet">
+    <link href="https://new.landingi.com/uploads/7176542ae17000174108/landings/eqeedcfjN3kcTRz96ic1/styles/confirm_ie8.css?page=success" type="text/css" rel="stylesheet"><![endif]-->
+    <link href="https://new.landingi.com/bootstrap/css/landend.bootstrap.min.css?v=8.9.8" type="text/css" rel="stylesheet">
+    <link href="https://new.landingi.com/uploads/7176542ae17000174108/landings/eqeedcfjN3kcTRz96ic1/styles/confirm.css?page=success" type="text/css" rel="stylesheet">
+  </head>
+  <body id="wTb8R8gfl41xKhNxCydoeRTC5UwQLaw8">
+    <div id="ZuSWZFVafzrX1Cq3KPiTcCJkgLgaovaO" class="widget widget-section">
+      <div class="row">
+        <div class="container">
+          <div id="aVcon6UfgEmhJ8mVnx2R3CKyNgAaGcTq" class="col-12">
+            <div id="X6aUoNBek6LPnWSfMIM2EU0E8xyMyZAT" class="widget widget-text">
+              <p>Спасибо!</p>
+            </div>
+            <div id="ITaZMLwsuMvHSTTrGmreeFozOG2wrCdP" class="widget widget-text">
+              <p>Мы обязательно сообщим вам, как только сервис заработает</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://new.landingi.com/bootstrap/js/landend.bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://new.landingi.com/bootstrap/js/bootbox.min.js"></script>
+    <script type="text/javascript" src="https://new.landingi.com/js/libs/landingi/validator.js"></script>
+    <script type="text/javascript" src="https://new.landingi.com/js/landing.js"></script>
+    <script type="text/javascript" src="https://new.landingi.com/js/branding.js"></script>
+    <script type="text/javascript" src="https://new.landingi.com/js/libs/jquery/jquery-placeholder.js"></script>
+    <script type="text/javascript">$(function() {
+        $("input, textarea").placeholder();
+      });</script>
+    
+   <%= render :partial => "shared/yandex" %>
+  </body>
+</html>
