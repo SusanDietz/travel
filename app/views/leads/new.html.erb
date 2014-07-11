@@ -12,6 +12,13 @@
   </head>
   <body id="z77RxvIKTq75FN2GbpxHhO43v1lN5M79">
     <div id="ry4ApEskHmd4cTycm7uvWcrCFV73dcZ3" class="widget widget-section">
+    <% if user_signed_in? %>
+      <%= current_user.email %>
+      <%= link_to 'Выйти', destroy_user_session_path, method: 'delete' %>
+    <% else%>
+      <%= link_to 'Войти', new_user_session_path, method: 'get' %>
+      <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+    <% end %>
       <div class="row">
         <div class="container">
           <div id="POPAABVTtwVlgWntxz1rnzcXhJ9Uu5oW" class="col-12">
