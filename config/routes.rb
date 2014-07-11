@@ -1,4 +1,6 @@
 Travel::Application.routes.draw do
+  devise_for :users
+
   resources :leads
 
 
