@@ -14,8 +14,9 @@
     <div id="ry4ApEskHmd4cTycm7uvWcrCFV73dcZ3" class="widget widget-section">
     <% if user_signed_in? %>
       <%= current_user.email %>
-     <!-- <a href='localhost:3000' class='button'-->
+      <a class='button'
       <%= link_to 'Выйти', destroy_user_session_path, method: 'delete' %>
+      </a>
     <% else%>
     <a href='/users/sign_in' class='button'
       <%= link_to 'Войти', new_user_session_path, method: 'get' %>
