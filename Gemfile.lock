@@ -52,6 +52,8 @@ GEM
     coffee-script-source (1.7.0)
     erubis (2.7.0)
     execjs (2.2.1)
+    geocoder (1.2.3)
+    gmaps4rails (2.1.2)
     hike (1.2.3)
     i18n (0.6.9)
     journey (1.0.4)
@@ -127,6 +129,7 @@ GEM
     uglifier (2.5.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    underscore-rails (1.6.0)
     unicorn (4.8.2)
       kgio (~> 2.6)
       rack
@@ -141,10 +144,13 @@ DEPENDENCIES
   capistrano-rails (~> 1.1)
   capistrano-rvm
   coffee-rails (~> 3.2.1)
+  geocoder
+  gmaps4rails
   jquery-rails
   pg
   rails (= 3.2.16)
   sass-rails (~> 3.2.3)
   therubyracer
   uglifier (>= 1.0.3)
+  underscore-rails
   unicorn

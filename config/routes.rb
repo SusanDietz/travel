@@ -1,6 +1,9 @@
 Travel::Application.routes.draw do
-  resources :leads
+  get "home/homepage"
 
+  resources :leads
+  resources :markers
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -41,7 +44,7 @@ Travel::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
-
+   get '/home', to: 'home#homepage'
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
@@ -52,6 +55,7 @@ Travel::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'leads#new'
+  root :to => 'home#new'
 
   # See how all your routes lay out with "rake routes"
 
