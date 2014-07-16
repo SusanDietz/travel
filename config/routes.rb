@@ -1,6 +1,7 @@
 Travel::Application.routes.draw do
+  
   get "home/homepage"
-
+  devise_for :users
   resources :leads
   resources :markers
   
