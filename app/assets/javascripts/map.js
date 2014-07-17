@@ -25,18 +25,3 @@ handler.buildMap({ internal: {id: 'directions'}}, function(){
   
 });
 });
-
-
-lat = position.coords.latitude;
-lng = position.coords.longitude;
-
-Gmaps.map.callback = function() {
-   Gmaps.map.createMarker({
-      Lat: lat,
-      Lng: lng, 
-      rich_marker: null, 
-      marker_picture: ""
-   });
-}
-
-alert(lat+' '+lng);
