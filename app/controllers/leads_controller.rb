@@ -1,7 +1,8 @@
 class LeadsController < ApplicationController
   # GET /leads
   # GET /leads.json
-  def index
+  
+   def index
     @leads = Lead.all
 
     respond_to do |format|
