@@ -1,5 +1,7 @@
 Travel::Application.routes.draw do
   
+  get "pages/points"
+
   get "home/homepage"
   devise_for :users
   resources :leads
@@ -57,6 +59,7 @@ Travel::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'leads#new'
   root :to => 'home#new'
+
 
   # See how all your routes lay out with "rake routes"
 

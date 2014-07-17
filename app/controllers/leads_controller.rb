@@ -32,6 +32,7 @@ class LeadsController < ApplicationController
     end
   end
 
+
   # GET /leads/1/edit
   def edit
     @lead = Lead.find(params[:id])
