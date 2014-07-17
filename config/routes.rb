@@ -45,7 +45,7 @@ Travel::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
-   get '/home', to: 'home#homepage'
+   get '/', to: 'leads#new'
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
@@ -56,7 +56,7 @@ Travel::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   
-  root :to => 'home#new'
+  root :to => 'leads#new'
 
 
   # See how all your routes lay out with "rake routes"
