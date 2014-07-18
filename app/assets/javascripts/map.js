@@ -3,8 +3,8 @@ $( document ).ready(function() {
   var directionsService = new google.maps.DirectionsService();
 
     function calcRoute() {
-      var origin      = new google.maps.LatLng(41.850033, -87.6500523);
-      var destination = new google.maps.LatLng(42.850033, -85.6500523);
+      var origin      = new google.maps.LatLng(53.182209, 45.004350);
+      var destination = new google.maps.LatLng(53.203139, 45.009586);
       var request = {
           origin:      origin,
           destination: destination,
@@ -20,7 +20,8 @@ $( document ).ready(function() {
   calcRoute();
 
   var handler = Gmaps.build('Google');
-  handler.buildMap({ internal: {id: 'directions'}}, function(){
+  handler.buildMap({ internal: {id: 'map-canvas'}}, function(){
     directionsDisplay.setMap(handler.getMap());
   });
 });
+
