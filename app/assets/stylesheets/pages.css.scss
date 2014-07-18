@@ -13,7 +13,7 @@
     padding: 12px;
     display:inline-block;
     color: #FFF;
-    width: 170px;
+    width: 200px;
     font-size: 18px;
     position: relative;
     text-decoration: none;
@@ -23,7 +23,7 @@
     text-decoration: none;
 }
 .button:hover {
-    
+
 }
 .widget-input-button {
     cursor: pointer;
@@ -34,9 +34,10 @@
     text-align:center;
     }
 
-#map img { 
+
+#directions img {
   max-width: none;
 }
-#map label { 
-  width: auto; display:inline; 
-} 
+#directions label {
+  width: auto; display:inline;
+}

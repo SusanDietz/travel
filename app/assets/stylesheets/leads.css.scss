@@ -13,17 +13,18 @@
     padding: 12px;
     display:inline-block;
     color: #FFF;
-    width: 170px;
+    width: 200px;
     font-size: 18px;
     position: relative;
     text-decoration: none;
+    margin-top: 20px;
    }
 .button:visited {
     color: white;
     text-decoration: none;
 }
 .button:hover {
-    
+
 }
 .widget-input-button {
     cursor: pointer;
@@ -36,5 +37,7 @@
 
 .map-wrap {
     margin: 30px auto;
-    width: 800px;
+    width: 1600px;
 }
+
+
