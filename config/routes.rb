@@ -1,9 +1,14 @@
 Travel::Application.routes.draw do
 
+  resources :points
+
+
   get '/points', to:'points#index'
+  get '/test', to:'tests#index'
   devise_for :users
   resources :leads
   resources :markers
+  resources :points
 
 
   # The priority is based upon order of creation:

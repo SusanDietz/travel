@@ -11,12 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140716075703) do
+ActiveRecord::Schema.define(:version => 20140722093707) do
 
   create_table "leads", :force => true do |t|
     t.string   "email"
     t.integer  "source"
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "points", :force => true do |t|
+    t.float    "lat"
+    t.float    "lng"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

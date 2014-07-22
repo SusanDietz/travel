@@ -1,21 +1,25 @@
+<h1>Listing points</h1>
 
-<div id="ry4ApEskHmd4cTycm7uvWcrCFV73dcZ3" class="widget widget-section">
-  <% if user_signed_in? %>
-    <%= current_user.email %>
-    <a class='button'
-    <%= link_to 'Выйти', destroy_user_session_path, method: 'delete' %>
-    </a>
-  <% else%>
-  <a href='/users/sign_in' class='button'
-    <%= link_to 'Войти', new_user_session_path, method: 'get' %>
-    </a>
-   <a href= '/users/sign_up' class ='button'
-    <%= link_to 'Зарегистрироваться', new_user_registration_path %>
-    </a>
-  <% end %>
-</div>
+<table>
+  <tr>
+    <th>Lat</th>
+    <th>Lng</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-  <div class='map-wrap'>
-    <div id="map-canvas" style='height: inherit;'></div>
-  </div>
+<% @points.each do |point| %>
+  <tr>
+    <td><%= point.lat %></td>
+    <td><%= point.lng %></td>
+    <td><%= link_to 'Show', point %></td>
+    <td><%= link_to 'Edit', edit_point_path(point) %></td>
+    <td><%= link_to 'Destroy', point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
 
+<br />
+
+<%= link_to 'New Point', new_point_path %>
