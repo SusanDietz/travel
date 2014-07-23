@@ -30,6 +30,22 @@ $( document ).ready(function() {
   var description = prompt('Description','Description here');
 
   if  (description) {
+    var newPoint = {
+      name: 'lel',
+      description: description,
+      latitude: event.latLng.d,
+      longitude: event.latLng.e
+    }
+    console.log(newPoint);
+    console.log(JSON.stringify(newPoint));
+    $.ajax({
+      type: 'post',
+      url: '/points#create',
+      data: {newPoint:newPoint},
+      success: (console.log('success')),
+      dataType: 'json'
+    });
+
     description = '<div id="tag">' + description + '</div>';
     var infowindow = new google.maps.InfoWindow({
       content: description
