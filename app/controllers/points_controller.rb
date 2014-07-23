@@ -3,7 +3,6 @@ class PointsController < ApplicationController
   # GET /points.json
   def index
     @points = Point.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @points }
@@ -25,7 +24,6 @@ class PointsController < ApplicationController
   # GET /points/new.json
   def new
     @point = Point.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @point }

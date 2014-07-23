@@ -1,3 +1,3 @@
 class Point < ActiveRecord::Base
-  attr_accessible :lat, :lng
+  attr_accessible :name, :description, :latitude, :longitude
 end

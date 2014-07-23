@@ -11,11 +11,14 @@
 
 <% @points.each do |point| %>
   <tr>
-    <td><%= point.lat %></td>
-    <td><%= point.lng %></td>
+    <td><%= point.latitude %></td>
+    <td><%= point.longitude %></td>
+    <td><%= point.name %></td>
+    <td><%= point.description %></td>
     <td><%= link_to 'Show', point %></td>
     <td><%= link_to 'Edit', edit_point_path(point) %></td>
     <td><%= link_to 'Destroy', point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
   </tr>
 <% end %>
 </table>

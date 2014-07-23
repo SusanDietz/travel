@@ -5,8 +5,8 @@ handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map-canvas'}}, function(){
   markers = handler.addMarkers([
     {
-      "lat": 0,
-      "lng": 0,
+      "lat": 53.184660,
+      "lng": 44.972893,
       "picture": {
         "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
         "width":  36,
@@ -23,10 +23,6 @@ handler.buildMap({ provider: {}, internal: {id: 'map-canvas'}}, function(){
     center: new google.maps.LatLng(53.184660, 44.972893),
     zoom: 19}
 
-// var map = new google.maps.Map(document.getElementById('map-canvas'),
-// mapOptions);
-
-google.maps.event.addDomListener(window, 'load', initialize);
 
 
 });
