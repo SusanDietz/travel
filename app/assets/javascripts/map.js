@@ -23,7 +23,10 @@ handler.buildMap({ provider: {}, internal: {id: 'map-canvas'}}, function(){
     center: new google.maps.LatLng(53.184660, 44.972893),
     zoom: 19}
 
-
+  google.maps.event.addListener(handler.getMap(), 'click', function(event) {
+      console.log(event.latLng);
+      console.log('lol');
+  });
 
 });
 
