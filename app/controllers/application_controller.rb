@@ -17,7 +17,7 @@ def store_location
 end
 
 def after_sign_in_path_for(resource)
-  session[:previous_url] || root_path
+  points_path
 end
 
 def after_sign_out_path_for(resource_or_scope)

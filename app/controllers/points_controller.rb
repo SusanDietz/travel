@@ -1,4 +1,5 @@
 class PointsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /points
   # GET /points.json
   def index
@@ -37,18 +38,21 @@ class PointsController < ApplicationController
   # POST /points
   # POST /points.json
   def create
-    @point = Point.new(params[:id])
-    @ajaxpoint = Point.create(params[:newPoint])
     respond_to do |format|
+     format.html {
+      @point = Point.new(params[:point])
       if @point.save
-        format.html { redirect_to @point, notice: 'Point was successfully created.' }
-        format.json { render json: @ajaxpoint, status: :created, location: @ajaxpoint }
+        redirect_to @point, notice: 'Point was successfully created.'
       else
-        format.html { render action: "new" }
-        format.json { render json: @ajaxpoint.errors, status: :unprocessable_entity }
+        render action: "new"
       end
+      }
+      format.json {
+      @ajaxpoint = Point.create(params[:newPoint])
+      render json: @ajaxpoint, status: :created, location: @ajaxpoint }
     end
   end
+
 
   # PUT /points/1
   # PUT /points/1.json

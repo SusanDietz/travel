@@ -17,9 +17,7 @@ $( document ).ready(function() {
     handler.fitMapToBounds();
   });
 
-  var mapOptions = {
-    center: new google.maps.LatLng(53.184660, 44.972893),
-    zoom: 19}
+
 
   google.maps.event.addListener(handler.getMap(), 'click', function(event) {
       console.log(event.latLng);
@@ -36,8 +34,6 @@ $( document ).ready(function() {
       latitude: event.latLng.d,
       longitude: event.latLng.e
     }
-    console.log(newPoint);
-    console.log(JSON.stringify(newPoint));
     $.ajax({
       type: 'post',
       url: '/points',
