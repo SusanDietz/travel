@@ -1,23 +1,13 @@
 $( document ).ready(function() {
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map-canvas'}}, function(){
-    markers = handler.addMarkers([
-      {
-        "lat": 53.184660,
-        "lng": 44.972893,
-        "picture": {
-          "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-          "width":  36,
-          "height": 36
-        },
-        "infowindow": "hello!"
-      }
-    ]);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
-
-
+var mapOptions = {
+  center: new google.maps.LatLng(53.184562, 44.973993),
+  zoom: 18,
+  mapTypeId: google.maps.MapTypeId.HYBRID
+};
+var handler = Gmaps.build('Google');
+handler.buildMap({provider: mapOptions,  internal: {id: 'map-canvas'}}, function(){
+  var markers = handler.addMarkers(gmap_points)
+});
 
   google.maps.event.addListener(handler.getMap(), 'click', function(event) {
       console.log(event.latLng);
@@ -36,7 +26,7 @@ $( document ).ready(function() {
     }
     $.ajax({
       type: 'post',
-      url: '/points',
+      url: '/points#create',
       data: {newPoint:newPoint},
       success: (console.log('success')),
       dataType: 'json'

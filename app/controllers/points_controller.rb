@@ -1,12 +1,20 @@
 class PointsController < ApplicationController
-  before_filter :authenticate_user!
+
+   before_filter :authenticate_user!
+
   # GET /points
   # GET /points.json
   def index
     @points = Point.where(user_id: current_user.id)
+    @hash = Gmaps4rails.build_markers(@points) do |point, marker|
+        marker.lat point.latitude.to_f
+        marker.lng point.longitude.to_f
+        marker.infowindow point.description
+    end
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @points }
+        format.html # index.html.erb
+        format.json { render json: @points }
+        format.json { render json: @hash }
     end
   end
 
@@ -24,7 +32,6 @@ class PointsController < ApplicationController
   # GET /points/new.json
   def new
     @point = Point.new
-    @point.user_id = current_user.id
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @point}
@@ -39,28 +46,26 @@ class PointsController < ApplicationController
   # POST /points
   # POST /points.json
   def create
+    @point = Point.new(params[:newPoint])
+
     respond_to do |format|
-     format.html {
-      @point = Point.new(params[:point])
-      @point.user_id = current_user.id
       if @point.save
-        redirect_to @point, notice: 'Point was successfully created.'
+        format.html { redirect_to @point, notice: 'Point was successfully created.' }
+        format.json { render json: @point, status: :created, location: @point }
       else
-        render action: "new"
+        format.html { render action: "new" }
+        format.json { render json: @point.errors, status: :unprocessable_entity }
       end
-      }
-      format.json {
+
       @ajaxpoint = Point.new(params[:newPoint])
       @ajaxpoint.user_id = current_user.id
       if @ajaxpoint.save
-        render json: @ajaxpoint, status: :created, location: @ajaxpoint
+         format.json {render json: @ajaxpoint, status: :created, location: @ajaxpoint}
       else
-        render json: @ajaxpoint, status: :error, location: @ajaxpoint
+        format.json { render json: @ajaxpoint, status: :error, location: @ajaxpoint }
       end
-    }
     end
   end
-
 
   # PUT /points/1
   # PUT /points/1.json
