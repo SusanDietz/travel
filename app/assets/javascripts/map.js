@@ -1,22 +1,10 @@
 $( document ).ready(function() {
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map-canvas'}}, function(){
-    markers = handler.addMarkers([
-      {
-        "lat": 53.184660,
-        "lng": 44.972893,
-        "picture": {
-          "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-          "width":  36,
-          "height": 36
-        },
-        "infowindow": "hello!"
-      }
-    ]);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
-
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'map-canvas'}}, function(){
+  var markers = handler.addMarkers(gmap_points)
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
   var mapOptions = {
     center: new google.maps.LatLng(53.184660, 44.972893),
     zoom: 19}
@@ -26,7 +14,7 @@ $( document ).ready(function() {
   });
 
   google.maps.event.addListener(handler.getMap(), 'dblclick', function(event) {
-
+  
   var description = prompt('Description','Description here');
 
   if  (description) {

@@ -3,9 +3,17 @@ class PointsController < ApplicationController
   # GET /points.json
   def index
     @points = Point.all
-    respond_to do |format|
+      @hash = Gmaps4rails.build_markers(@points) do |point, marker|
+        marker.lat point.latitude.to_f
+        marker.lng point.longitude.to_f
+        marker.infowindow point.description
+      end
+      
+
+      respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @points }
+      format.json { render json: @hash }
     end
   end
 
