@@ -3,7 +3,7 @@ class PointsController < ApplicationController
   # GET /points
   # GET /points.json
   def index
-    @points = Point.all
+    @points = Point.where(user_id: current_user.id)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @points }
@@ -50,8 +50,14 @@ class PointsController < ApplicationController
       end
       }
       format.json {
-      @ajaxpoint = Point.create(params[:newPoint])
-      render json: @ajaxpoint, status: :created, location: @ajaxpoint }
+      @ajaxpoint = Point.new(params[:newPoint])
+      @ajaxpoint.user_id = current_user.id
+      if @ajaxpoint.save
+        render json: @ajaxpoint, status: :created, location: @ajaxpoint
+      else
+        render json: @ajaxpoint, status: :error, location: @ajaxpoint
+      end
+    }
     end
   end
 
@@ -60,7 +66,6 @@ class PointsController < ApplicationController
   # PUT /points/1.json
   def update
     @point = Point.find(params[:id])
-
     respond_to do |format|
       if @point.update_attributes(params[:point])
         format.html { redirect_to @point, notice: 'Point was successfully updated.' }
