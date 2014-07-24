@@ -5,6 +5,8 @@ Travel::Application.routes.draw do
   resources :leads
   resources :markers
   
+ # get 'form' => 'forms#index', :as => :form
+  #post 'form' => 'forms#form_send', :as => :form_send
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -45,7 +47,7 @@ Travel::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
-   get '/home', to: 'home#homepage'
+   get '/', to: 'leads#new'
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
