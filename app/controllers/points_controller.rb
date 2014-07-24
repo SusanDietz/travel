@@ -46,24 +46,25 @@ class PointsController < ApplicationController
   # POST /points
   # POST /points.json
   def create
-    @point = Point.new(params[:newPoint])
-
     respond_to do |format|
+      format.html {
+        @point = Point.new (params[:point])
+        @point.user_id = current_user.id
       if @point.save
-        format.html { redirect_to @point, notice: 'Point was successfully created.' }
-        format.json { render json: @point, status: :created, location: @point }
+        redirect_to @point, notice: 'Point was successfully created.'
       else
-        format.html { render action: "new" }
-        format.json { render json: @point.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-
+}
+format.json {
       @ajaxpoint = Point.new(params[:newPoint])
       @ajaxpoint.user_id = current_user.id
       if @ajaxpoint.save
-         format.json {render json: @ajaxpoint, status: :created, location: @ajaxpoint}
+         render json: @ajaxpoint, status: :created, location: @ajaxpoint
       else
-        format.json { render json: @ajaxpoint, status: :error, location: @ajaxpoint }
+         render json: @ajaxpoint, status: :error, location: @ajaxpoint
       end
+    }
     end
   end
 
