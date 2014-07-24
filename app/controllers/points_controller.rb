@@ -24,6 +24,7 @@ class PointsController < ApplicationController
   # GET /points/new.json
   def new
     @point = Point.new
+    @point.user_id = current_user.id
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @point}
@@ -41,6 +42,7 @@ class PointsController < ApplicationController
     respond_to do |format|
      format.html {
       @point = Point.new(params[:point])
+      @point.user_id = current_user.id
       if @point.save
         redirect_to @point, notice: 'Point was successfully created.'
       else
