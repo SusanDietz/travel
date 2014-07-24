@@ -40,7 +40,7 @@ $( document ).ready(function() {
     console.log(JSON.stringify(newPoint));
     $.ajax({
       type: 'post',
-      url: '/points#create',
+      url: '/points',
       data: {newPoint:newPoint},
       success: (console.log('success')),
       dataType: 'json'
