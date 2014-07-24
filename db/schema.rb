@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140723071224) do
+ActiveRecord::Schema.define(:version => 20140724095947) do
 
   create_table "leads", :force => true do |t|
     t.string   "email"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20140723071224) do
     t.boolean  "gmaps"
     t.text     "description"
     t.string   "name"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
