@@ -30,3 +30,26 @@ input.btn-block[type="submit"] {
 .float-left {
     float: left;
 }
+
+
+body {
+    background-color: #f8f8f8;
+}
+
+#map-canvas {
+    border: 5px solid #e7e7e7;;
+}
+
+.points-list li,
+.points-list {
+    background-color: #e7e7e7;
+}
+
+.points-list li:hover {
+    color: white;
+}
+
+
+.options {
+    display: none;
+}
