@@ -7,7 +7,6 @@ window.gmap_points = <%= raw@hash.to_json %>
 <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js' type='text/javascript'></script>
 
 <body>
-  <div class="wrapper container">
     <header>
       <div id="ry4ApEskHmd4cTycm7uvWcrCFV73dcZ3" class="widget widget-section">
          <% if user_signed_in? %>
@@ -22,16 +21,15 @@ window.gmap_points = <%= raw@hash.to_json %>
           <h1>Места</h1>
       </div>
         <div class="heading"></div>
+        <h3 class='clearfix'>Ваши места</h3>
         <div class="row">
             <aside class="col-md-7 float-left">
-                  <h3>Ваши места</h3>
                   <ul class='points-list'>
                   <% @points.each do |point| %>
                     <li>
-                    <%= point.name %>
+                    <span class='point-name'> <%= point.name %> </span><br>
                     <%= point.description %>
-                    <%= point.user_id %>
-                     <span class='options'>
+                    <span class='options'>
                       <%= link_to 'Show', point %>
                       <%= link_to 'Edit', edit_point_path(point) %>
                       <%= link_to 'Destroy', point, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -41,7 +39,6 @@ window.gmap_points = <%= raw@hash.to_json %>
                 </ul>
             </aside>
       <section class="col-md-17">
-          <div id="map-canvas" style='width: 800px; height: 400px;'></div>
+          <div id="map-canvas" ></div>
       </section>
-      </div>
   <footer></footer>
