@@ -8,13 +8,11 @@ window.gmap_points = <%= raw@hash.to_json %>
 
 <body>
     <header>
-      <div id="ry4ApEskHmd4cTycm7uvWcrCFV73dcZ3" class="widget widget-section">
-         <% if user_signed_in? %>
-            <%= current_user.email %>
+      <div id="ry4ApEskHmd4cTycm7uvWcrCFV73dcZ3" class="widget widget-section float-right">
+         <span class='username'><%= current_user.email %></span>
             <a class='btn  btn-primary'
             <%= link_to 'Выйти', destroy_user_session_path, method: 'delete' %>
             </a>
-        <% end %>
        </div>
     </header>
       <div class="heading">
@@ -38,7 +36,12 @@ window.gmap_points = <%= raw@hash.to_json %>
                 <% end %>
                 </ul>
             </aside>
-      <section class="col-md-17">
+      <section class="col-md-17 clearfix">
           <div id="map-canvas" ></div>
       </section>
-  <footer></footer>
+  <footer>
+    <div class='social'>
+      <a id='vk' href='http://vk.com/livetravel58' alt='vk'></a>
+      <a id= 'fb' href='https://www.facebook.com/groups/livetravel58/' alt='fb'></a>
+    </div>
+  </footer>

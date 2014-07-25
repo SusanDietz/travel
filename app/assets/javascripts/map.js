@@ -28,6 +28,7 @@ handler.buildMap({provider: mapOptions,  internal: {id: 'map-canvas'}}, function
       type: 'post',
       url: '/points#create',
       data: {newPoint:newPoint},
+      dataType: 'json',
       success: (function(){
           $('.points-list').append([name, description])
         }),

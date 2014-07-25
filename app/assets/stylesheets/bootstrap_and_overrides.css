@@ -32,61 +32,10 @@ input.btn-block[type="submit"] {
 aside {
     width: 29%;
 }
-.float-left {
-    float: left;
-}
 
-.clearfix:after {
-    display: table;
-    content: "";
-    clear: both;
-}
-
-
-#map-canvas {
-    border: 5px solid #e7e7e7;;
-    margin-left: 0;
-}
-
-.points-list li,
-.points-list {
-    margin: 5px 0 0 20px;
-    background-color: #e7e7e7;
-    padding: 3px;
-    list-style: none;
-}
-
-.points-list li {
-    background-image: url(<%= asset_path 'logo.png' %>));
-}
 
 h3 {
     margin-left: 40px;
 }
 
-.point-name {
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.options {
-    display: none;
-}
-
-
-#map-canvas {
-  width: 70%;
-  height: 800px;
-  float: right;
-}
-
-#tag{
-    font-size: 18px;
-}
-
-#map-canvas img {
-  max-width: none;
-}
-#map-canvas label {
-  width: auto; display:inline;
-}
+.
