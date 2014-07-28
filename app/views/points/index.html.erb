@@ -1,10 +1,11 @@
-<<<<<<< HEAD
 <div id="ry4ApEskHmd4cTycm7uvWcrCFV73dcZ3" class="widget widget-section">
   <% if user_signed_in? %>
-    <%= current_user.email %>
-    <a class='button'
-    <%= link_to 'Выйти', destroy_user_session_path, method: 'delete' %>
-    </a>
+    <div id="ry4ApEskHmd4cTycm7uvWcrCFV73dcZ3" class="widget widget-section float-right">
+         <span class='username'><%= current_user.email %></span>
+          <a class='btn  btn-primary'
+            <%= link_to 'Выйти', destroy_user_session_path, method: 'delete' %>
+          </a>
+    </div>
   <% else%>
   <a href='/users/sign_in' class='button'
     <%= link_to 'Войти', new_user_session_path, method: 'get' %>
@@ -48,8 +49,7 @@
   <div id="map-canvas" style='width: 800px; height: 400px;'></div>
 </div>
 
-=======
->>>>>>> b68e3e5183c89bb55f1028e67becc3adba868cde
+
 <script>
 window.gmap_points = <%= raw@hash.to_json %>
 </script>
@@ -60,12 +60,7 @@ window.gmap_points = <%= raw@hash.to_json %>
 
 <body>
     <header>
-      <div id="ry4ApEskHmd4cTycm7uvWcrCFV73dcZ3" class="widget widget-section float-right">
-         <span class='username'><%= current_user.email %></span>
-            <a class='btn  btn-primary'
-            <%= link_to 'Выйти', destroy_user_session_path, method: 'delete' %>
-            </a>
-       </div>
+      
     </header>
       <div class="heading">
           <h1>Места</h1>
