@@ -17,7 +17,26 @@
   <b>Description</b>
   <%= @point.description%>
 </p>
+<p>#notice= notice</p>
 
+<p>
+  <b> Username:</b> 
+  = @polzovatel.username
+  </p>
+<p>
+  <b>Nickname:</b>
+  = @polzovatel.nickname
+</p>
+<p>
+  <b> Provider:</b>
+  = @polzovatel.provider
+</p>
+<p>
+  <b> Url:</b>
+    = @polzovatel.url
+</p>
+<%= link_to 'Edit', edit_polzovatel_path(@polzovatel)%>
+<%= link_to 'Back', polzovatels_path%>
 
 <%= link_to 'Edit', edit_point_path(@point) %> |
 <%= link_to 'Back', points_path %>

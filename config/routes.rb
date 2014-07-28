@@ -1,11 +1,13 @@
 Travel::Application.routes.draw do
 
-  resources :points
+  get "omniauth_callbacks/facebook"
+
+  get "omniauth_callbacks/vkontakte"
 
 
   get '/points', to:'points#index'
   get '/test', to:'tests#index'
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :leads
   resources :markers
   resources :points
@@ -50,7 +52,7 @@ Travel::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
-   get '/', to: 'leads#new'
+   # get '/', to: 'leads#new'
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
@@ -61,7 +63,7 @@ Travel::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
 
-  root :to => 'leads#new'
+  root :to => 'points#index'
 
   # See how all your routes lay out with "rake routes"
 

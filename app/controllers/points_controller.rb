@@ -5,6 +5,7 @@ class PointsController < ApplicationController
   # GET /points
   # GET /points.json
   def index
+   
     @points = Point.where(user_id: current_user.id)
     @hash = Gmaps4rails.build_markers(@points) do |point, marker|
         marker.lat point.latitude.to_f
@@ -21,6 +22,7 @@ class PointsController < ApplicationController
   # GET /points/1
   # GET /points/1.json
   def show
+  
     @point = Point.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
@@ -31,6 +33,7 @@ class PointsController < ApplicationController
   # GET /points/new
   # GET /points/new.json
   def new
+   
     @point = Point.new
     respond_to do |format|
       format.html # new.html.erb
@@ -40,12 +43,14 @@ class PointsController < ApplicationController
 
   # GET /points/1/edit
   def edit
+   
     @point = Point.find(params[:id])
   end
 
   # POST /points
   # POST /points.json
   def create
+
     respond_to do |format|
       format.html {
         @point = Point.new (params[:point])
@@ -71,6 +76,7 @@ format.json {
   # PUT /points/1
   # PUT /points/1.json
   def update
+    
     @point = Point.find(params[:id])
     respond_to do |format|
       if @point.update_attributes(params[:point])
@@ -94,4 +100,4 @@ format.json {
       format.json { head :no_content }
     end
   end
-end
+end  

@@ -23,6 +23,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'haml-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 
 group :development do
   gem 'capistrano', '~> 3.1.0'
@@ -30,6 +34,7 @@ group :development do
   gem 'capistrano-rails',   '~> 1.1', require: false
   gem 'capistrano-bundler', '~> 1.1', require: false
   gem 'debugger'
+  gem 'sqlite3'
 end
 
 group :production do
@@ -38,7 +43,7 @@ end
 
 gem 'gmaps4rails'
 
-gem 'underscore-rails'
+gem 'underscore-rails' 
 
 gem 'geocoder'
 

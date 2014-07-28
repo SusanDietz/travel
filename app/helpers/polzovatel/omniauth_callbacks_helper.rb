@@ -1,0 +1,2 @@
+module Polzovatel::OmniauthCallbacksHelper
+end
