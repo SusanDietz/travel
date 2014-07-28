@@ -2,18 +2,91 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.map-wrap {
-  width: 800px;
-  margin: 0 auto;
-  height: 800px;
-  margin: 0;
+
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+.clearfix:after {
+    display: table;
+    content: "";
+    clear: both;
+}
+.widget {
+    margin: 5px;
+}
+.username {
+    font-size: 20px;
+    font-weight: bold;
 }
 
+.points-list li,
+.points-list {
+    margin: 5px 0 0 20px;
+    background-color: #e7e7e7;
+    padding: 3px;
+    list-style: none;
+}
+.points-list {
+    min-height: 500px;
+    max-height: 800px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.points-list li{
+    background-image: url(image-path('logo.png'));
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    padding-left: 20px;
+    overflow: hidden;
+}
+
+point-name {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.options {
+    display: none;
+}
+
+
 #map-canvas {
-  width: 800px;
-  height: 400px;
+  width: 70%;
+  height: 800px;
+  float: right;
+      border: 5px solid #e7e7e7;;
+    margin-left: 0;
 }
 
 #tag{
     font-size: 18px;
+}
+
+#map-canvas img {
+  max-width: none;
+}
+#map-canvas label {
+  width: auto; display:inline;
+}
+
+.social {
+    margin: 0 auto;
+    width: 250px;
+}
+
+footer a {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+}
+
+#vk {
+    background: url(image-path('vk.png'));
+}
+#fb {
+    background: url(image-path('fb.jpg'));
 }

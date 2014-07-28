@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div id="ry4ApEskHmd4cTycm7uvWcrCFV73dcZ3" class="widget widget-section">
   <% if user_signed_in? %>
     <%= current_user.email %>
@@ -47,6 +48,8 @@
   <div id="map-canvas" style='width: 800px; height: 400px;'></div>
 </div>
 
+=======
+>>>>>>> b68e3e5183c89bb55f1028e67becc3adba868cde
 <script>
 window.gmap_points = <%= raw@hash.to_json %>
 </script>
@@ -54,3 +57,43 @@ window.gmap_points = <%= raw@hash.to_json %>
 <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
 <script src='//google-maps-utility-library-v3.googlecode.com/svn/trunk/richmarker/src/richmarker-compiled.js' type='text/javascript'></script>
 <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js' type='text/javascript'></script>
+
+<body>
+    <header>
+      <div id="ry4ApEskHmd4cTycm7uvWcrCFV73dcZ3" class="widget widget-section float-right">
+         <span class='username'><%= current_user.email %></span>
+            <a class='btn  btn-primary'
+            <%= link_to 'Выйти', destroy_user_session_path, method: 'delete' %>
+            </a>
+       </div>
+    </header>
+      <div class="heading">
+          <h1>Места</h1>
+      </div>
+        <div class="heading"></div>
+        <h3 class='clearfix'>Ваши места</h3>
+        <div class="row">
+            <aside class="col-md-7 float-left">
+                  <ul class='points-list'>
+                  <% @points.each do |point| %>
+                    <li>
+                    <span class='point-name'> <%= point.name %> </span><br>
+                    <%= point.description %>
+                    <span class='options'>
+                      <%= link_to 'Show', point %>
+                      <%= link_to 'Edit', edit_point_path(point) %>
+                      <%= link_to 'Destroy', point, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </span>
+                    </li>
+                <% end %>
+                </ul>
+            </aside>
+      <section class="col-md-17 clearfix">
+          <div id="map-canvas" ></div>
+      </section>
+  <footer>
+    <div class='social'>
+      <a id='vk' href='http://vk.com/livetravel58' alt='vk'></a>
+      <a id= 'fb' href='https://www.facebook.com/groups/livetravel58/' alt='fb'></a>
+    </div>
+  </footer>
