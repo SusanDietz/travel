@@ -10,11 +10,6 @@ window.author = <%= current_user.id %>
                     <li>
                     <span class='point-name'> <%= point.name %> </span><br>
                     <%= point.description %>
-                    <span class='options'>
-                      <%= link_to 'Show', point %>
-                      <%= link_to 'Edit', edit_point_path(point) %>
-                      <%= link_to 'Destroy', point, method: :delete, data: { confirm: 'Are you sure?' } %>
-                    </span>
                     </li>
                 <% end %>
                 </ul>
