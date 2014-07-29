@@ -1,24 +1,9 @@
-<div id="ry4ApEskHmd4cTycm7uvWcrCFV73dcZ3" class="widget widget-section">
-  <% if user_signed_in? %>
-    <div id="ry4ApEskHmd4cTycm7uvWcrCFV73dcZ3" class="widget widget-section float-right">
-         <span class='username'><%= current_user.email %></span>
-          <a class='btn  btn-primary'
-            <%= link_to 'Выйти', destroy_user_session_path, method: 'delete' %>
-          </a>
-    </div>
-  <% else%>
-  <a href='/users/sign_in' class='button'
-    <%= link_to 'Войти', new_user_session_path, method: 'get' %>
-    </a>
-   <a href= '/users/sign_up' class ='button'
-    <%= link_to 'Зарегистрироваться', new_user_registration_path %>
-    </a>
-  <% end %>
+<%= render "shared/sign_reg_buttons" %>
 </div>
 
 <body>
     <header>
-      
+
     </header>
       <div class="heading">
           <h1>Места</h1>
@@ -41,9 +26,9 @@
                 <% end %>
                 </ul>
             </aside>
-      <section class="col-md-17 clearfix">
-          <div id="map-canvas" ></div>
-      </section>
+
+  <%= render "shared/map" %>
+
   <footer>
     <div class='social'>
       <a id='vk' href='http://vk.com/livetravel58' alt='vk'></a>

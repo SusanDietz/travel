@@ -1,5 +1,8 @@
 Travel::Application.routes.draw do
 
+
+
+
   get "omniauth_callbacks/facebook"
 
   get "omniauth_callbacks/vkontakte"
@@ -11,7 +14,7 @@ Travel::Application.routes.draw do
   resources :leads
   resources :markers
   resources :points
-
+  resources :itineraries
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -63,7 +66,7 @@ Travel::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
 
-  root :to => 'points#index'
+  root :to => 'itineraries#index'
 
   # See how all your routes lay out with "rake routes"
 

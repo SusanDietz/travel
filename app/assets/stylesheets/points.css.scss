@@ -9,14 +9,20 @@
 .float-right {
     float: right;
 }
+
 .clearfix:after {
-    display: table;
-    content: "";
-    clear: both;
+visibility: hidden;
+display: block;
+font-size: 0;
+content: " ";
+clear: both;
+height: 0;
 }
+
 .widget {
     margin: 5px;
 }
+
 .username {
     font-size: 20px;
     font-weight: bold;
@@ -55,8 +61,8 @@ point-name {
 
 
 #map-canvas {
-  width: 70%;
-  height: 800px;
+  width: 69%;
+  height: 600px;
   float: right;
       border: 5px solid #e7e7e7;;
     margin-left: 0;
