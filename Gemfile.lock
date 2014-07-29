@@ -77,9 +77,15 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
+    has_scope (0.6.0.rc)
+      actionpack (>= 3.2, < 5)
+      activesupport (>= 3.2, < 5)
     hashie (3.2.0)
     hike (1.2.3)
     i18n (0.6.9)
+    inherited_resources (1.5.0)
+      has_scope (~> 0.6.0.rc)
+      responders (~> 1.0)
     journey (1.0.4)
     jquery-rails (3.1.1)
       railties (>= 3.0, < 5.0)
@@ -148,6 +154,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    responders (1.1.0)
+      railties (>= 3.2, < 5)
     sass (3.3.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -206,6 +214,7 @@ DEPENDENCIES
   geocoder
   gmaps4rails
   haml-rails
+  inherited_resources
   jquery-rails
   omniauth
   omniauth-facebook

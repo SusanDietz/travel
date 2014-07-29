@@ -1,7 +1,7 @@
 class LeadsController < ApplicationController
   # GET /leads
   # GET /leads.json
-  
+
    def index
     @leads = Lead.all
 
@@ -15,7 +15,6 @@ class LeadsController < ApplicationController
   # GET /leads/1.json
   def show
     @lead = Lead.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @lead }

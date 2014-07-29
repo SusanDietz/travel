@@ -43,10 +43,10 @@ end
 
 gem 'gmaps4rails'
 
-gem 'underscore-rails' 
+gem 'underscore-rails'
 
 gem 'geocoder'
-
+gem 'inherited_resources'
 
 
 # To use ActiveModel has_secure_password
