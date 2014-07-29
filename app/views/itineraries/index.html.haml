@@ -1,13 +1,8 @@
+=render "shared/sign_reg_buttons"
+
 %h1 Listing itineraries
 
 %table
-  %tr
-    %th Name
-    %th Description
-    %th
-    %th
-    %th
-
   - @itineraries.each do |itinerary|
     %tr
       %td= itinerary.name
@@ -19,3 +14,5 @@
 %br
 
 = link_to 'New Itinerary', new_itinerary_path
+
+= render "shared/map"
