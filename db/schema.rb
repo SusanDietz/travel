@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140729102047) do
+ActiveRecord::Schema.define(:version => 20140729120422) do
 
   create_table "itineraries", :force => true do |t|
     t.string   "name"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(:version => 20140729102047) do
     t.boolean  "gmaps"
     t.text     "description"
     t.string   "name"
-    t.integer  "user_id"
     t.integer  "itinerary_id"
   end
 
