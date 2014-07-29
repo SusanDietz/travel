@@ -4,7 +4,6 @@ Travel::Application.routes.draw do
 
   get "omniauth_callbacks/vkontakte"
 
-
   get '/points', to:'points#index'
   get '/test', to:'tests#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -52,7 +51,7 @@ Travel::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
-   # get '/', to: 'leads#new'
+  get '/', to: 'leads#new'
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
