@@ -6,46 +6,49 @@ var mapOptions = {
 };
 var handler = Gmaps.build('Google');
 handler.buildMap({provider: mapOptions,  internal: {id: 'map-canvas'}}, function(){
-  var markers = handler.addMarkers(gmap_points)
+  var markers = handler.addMarkers(gmap_points, {draggable: true})
 });
 
-  google.maps.event.addListener(handler.getMap(), 'click', function(event) {
-      console.log(event.latLng);
-  });
-
-  google.maps.event.addListener(handler.getMap(), 'dblclick', function(event) {
-
-  var description = prompt('Description','Description here');
-
-  if  (description) {
-    var newPoint = {
-      name: 'lel',
-      description: description,
-      latitude: event.latLng.d,
-      longitude: event.latLng.e
-    }
-    $.ajax({
-      type: 'post',
-      url: '/points#create',
-      data: {newPoint:newPoint},
-      dataType: 'json',
-      success: (function(){
-          $('.points-list').append([name, description])
-        }),
+if (author == true) 
+  { 
+    google.maps.event.addListener(handler.getMap(), 'click', function(event) {
+        console.log(event.latLng);
     });
 
-    description = '<div id="tag">' + description + '</div>';
-    var infowindow = new google.maps.InfoWindow({
+    google.maps.event.addListener(handler.getMap(), 'dblclick', function(event) {
+
+    var description = prompt('Description','Description here');
+
+    if  (description) {
+      var newPoint = {
+        name: name,
+        description: description,
+        latitude: event.latLng.d,
+        longitude: event.latLng.e
+      }
+      $.ajax({
+        type: 'post',
+        url: '/points#create',
+        data: {newPoint:newPoint},
+        dataType: 'json',
+        success: (function(){
+            $('.points-list').append([name, description])
+          }),
+      });
+
+      description = '<div id="tag">' + description + '</div>';
+      var infowindow = new google.maps.InfoWindow({
       content: description
+      });
+      var marker = new google.maps.Marker({
+          position: event.latLng,
+          map: handler.getMap(),
+          title: name,
+      });
+    };
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(handler.getMap(),marker);
+      });
     });
-    var marker = new google.maps.Marker({
-        position: event.latLng,
-        map: handler.getMap(),
-        title: 'Hello World!',
-    });
-  };
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(handler.getMap(),marker);
-    });
-  });
+  }
 });
