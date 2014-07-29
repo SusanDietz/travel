@@ -1,8 +1,4 @@
 Travel::Application.routes.draw do
-
-
-
-
   get "omniauth_callbacks/facebook"
 
   get "omniauth_callbacks/vkontakte"
@@ -54,7 +50,6 @@ Travel::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
-  get '/', to: 'leads#new'
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
