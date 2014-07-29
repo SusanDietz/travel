@@ -5,8 +5,8 @@ class PointsController < ApplicationController
   # GET /points
   # GET /points.json
   def index
-   
-    @points = Point.where(user_id: current_user.id)
+    @itineraries = Itinerary.all
+    @points = Itinerary.where(user_id: current_user.id)
     @hash = Gmaps4rails.build_markers(@points) do |point, marker|
         marker.lat point.latitude.to_f
         marker.lng point.longitude.to_f
@@ -22,7 +22,7 @@ class PointsController < ApplicationController
   # GET /points/1
   # GET /points/1.json
   def show
-  
+
     @point = Point.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
@@ -33,7 +33,7 @@ class PointsController < ApplicationController
   # GET /points/new
   # GET /points/new.json
   def new
-   
+
     @point = Point.new
     respond_to do |format|
       format.html # new.html.erb
@@ -43,31 +43,21 @@ class PointsController < ApplicationController
 
   # GET /points/1/edit
   def edit
-   
+
     @point = Point.find(params[:id])
   end
 
   # POST /points
   # POST /points.json
   def create
-
+    @point = Itinerary.points.new(params[:Point])
     respond_to do |format|
-      format.html {
-        @point = Point.new (params[:point])
-        @point.user_id = current_user.id
+      format.json {
+      @point.user_id = current_user.id
       if @point.save
-        redirect_to @point, notice: 'Point was successfully created.'
+         render json: @point, status: :created, location: @point
       else
-        render action: "new"
-      end
-}
-format.json {
-      @ajaxpoint = Point.new(params[:newPoint])
-      @ajaxpoint.user_id = current_user.id
-      if @ajaxpoint.save
-         render json: @ajaxpoint, status: :created, location: @ajaxpoint
-      else
-         render json: @ajaxpoint, status: :error, location: @ajaxpoint
+         render json: @point, status: :error, location: @point
       end
     }
     end
@@ -76,7 +66,7 @@ format.json {
   # PUT /points/1
   # PUT /points/1.json
   def update
-    
+
     @point = Point.find(params[:id])
     respond_to do |format|
       if @point.update_attributes(params[:point])
@@ -100,4 +90,4 @@ format.json {
       format.json { head :no_content }
     end
   end
-end  
+end

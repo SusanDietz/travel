@@ -9,8 +9,8 @@ handler.buildMap({provider: mapOptions,  internal: {id: 'map-canvas'}}, function
   var markers = handler.addMarkers(gmap_points, {draggable: true})
 });
 
-if (author == true) 
-  { 
+if (author == true)
+  {
     google.maps.event.addListener(handler.getMap(), 'click', function(event) {
         console.log(event.latLng);
     });
@@ -20,7 +20,7 @@ if (author == true)
     var description = prompt('Description','Description here');
 
     if  (description) {
-      var newPoint = {
+      var Point = {
         name: name,
         description: description,
         latitude: event.latLng.d,
@@ -28,8 +28,8 @@ if (author == true)
       }
       $.ajax({
         type: 'post',
-        url: '/points#create',
-        data: {newPoint:newPoint},
+        url: '/itineraries/' + author,
+        data: {Point:Point},
         dataType: 'json',
         success: (function(){
             $('.points-list').append([name, description])

@@ -1,18 +1,16 @@
-=render "shared/sign_reg_buttons"
+= render "shared/sign_reg_buttons"
 
 %h1 Listing itineraries
 
-%table
+%ul
   - @itineraries.each do |itinerary|
-    %tr
-      %td= itinerary.name
-      %td= itinerary.description
-      %td= link_to 'Show', itinerary
-      %td= link_to 'Edit', edit_itinerary_path(itinerary)
-      %td= link_to 'Destroy', itinerary, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+    %li
+      %h4= itinerary.name
+      %p= itinerary.description
+      %p= link_to 'Show', itinerary
+      %p= link_to 'Edit', edit_itinerary_path(itinerary)
+      %p= link_to 'Destroy', itinerary, :method => :delete, :data => { :confirm => 'Are you sure?' }
 %br
 
 = link_to 'New Itinerary', new_itinerary_path
 
-= render "shared/map"

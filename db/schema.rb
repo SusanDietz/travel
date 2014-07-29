@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140729073914) do
+ActiveRecord::Schema.define(:version => 20140729102047) do
 
   create_table "itineraries", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
 
   create_table "leads", :force => true do |t|
@@ -29,14 +30,15 @@ ActiveRecord::Schema.define(:version => 20140729073914) do
   end
 
   create_table "points", :force => true do |t|
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
     t.text     "description"
     t.string   "name"
     t.integer  "user_id"
+    t.integer  "itinerary_id"
   end
 
   create_table "users", :force => true do |t|

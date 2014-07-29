@@ -1,9 +1,9 @@
 class ItinerariesController < ApplicationController
+     before_filter :authenticate_user!
   # GET /itineraries
   # GET /itineraries.json
   def index
     @itineraries = Itinerary.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @itineraries }
@@ -14,19 +14,24 @@ class ItinerariesController < ApplicationController
   # GET /itineraries/1.json
   def show
     @itinerary = Itinerary.find(params[:id])
-
+    @points = @itinerary.points
+    @hash = Gmaps4rails.build_markers(@points) do |point, marker|
+        marker.lat point.latitude.to_f
+        marker.lng point.longitude.to_f
+        marker.infowindow point.description
+   end
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @itinerary }
+      format.json { render json: 'sos'}
     end
   end
 
   # GET /itineraries/new
   # GET /itineraries/new.json
   def new
-    @itinerary = Itinerary.new
-
-    respond_to do |format|
+    @itinerary = Itinerary.create(user_id: current_user.id)
+    @itinerary.user_id = current_user.id
+     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @itinerary }
     end
