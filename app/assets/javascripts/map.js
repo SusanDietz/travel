@@ -21,7 +21,7 @@ if (author == true)
 
     if  (description) {
       var newPoint = {
-        name: 'lel',
+        name: name,
         description: description,
         latitude: event.latLng.d,
         longitude: event.latLng.e
@@ -43,7 +43,7 @@ if (author == true)
       var marker = new google.maps.Marker({
           position: event.latLng,
           map: handler.getMap(),
-          title: 'Hello World!',
+          title: name,
       });
     };
     google.maps.event.addListener(marker, 'click', function() {
