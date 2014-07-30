@@ -11,6 +11,9 @@ window.author = <%= current_user.id %>
                     <span class='point-name'> <%= point.name %> </span><br>
                     <%= point.description %>
                     </li>
+                          %p= link_to 'Show', itinerary
+                          %p= link_to 'Edit', edit_itinerary_path(itinerary)
+                          %p= link_to 'Destroy', itinerary, :method => :delete, :data => { :confirm => 'Are you sure?' }
                 <% end %>
                 </ul>
             </aside>
