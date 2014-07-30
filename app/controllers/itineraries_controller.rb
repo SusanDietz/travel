@@ -9,8 +9,14 @@ class ItinerariesController < InheritedResources::Base
           marker.lng point.longitude
           marker.infowindow point.description
         end
-        @pf = Point.first
-        @pl = Point.last
+        @pf = Gmaps4rails.build_markers(@points.first) do |point, marker|
+          marker.lat point.latitude
+          marker.lng point.longitude
+        end
+        @pl = Gmaps4rails.build_markers(@points.last) do |point, marker|
+          marker.lat point.latitude
+          marker.lng point.longitude
+          end
         respond_to do |format|
           format.html # show.html.erb
           format.json { render json: @itenerary }
