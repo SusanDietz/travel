@@ -6,11 +6,12 @@ class PointsController < InheritedResources::Base
       format.json {
         @point = @itinerary.points.new(params[:point])
         if @point.save
-            render  :json => @point
+            render :js => @point
         else
             render :json => :error
         end
         }
+        format.js
     end
   end
 end

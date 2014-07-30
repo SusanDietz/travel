@@ -33,7 +33,7 @@ if (1== true)
         latitude: event.latLng.d,
         longitude: event.latLng.e
       }
-      pointHtml =               "<li><span class='point-name'>" + sentPoint.name+" </span><br>" + sentPoint.description+"</li>"
+
       $.ajax({
         type: 'post',
         url: window.location+'/points#new',
@@ -74,5 +74,7 @@ function calcRoute() {
   });
 }
 
-calcRoute();
+$('.points-list li').on('mouseenter', function() {
+  $(this).find('.options').show
+});
 });

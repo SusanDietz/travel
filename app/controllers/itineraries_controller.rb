@@ -3,7 +3,7 @@ class ItinerariesController < InheritedResources::Base
     def show
         @itinerary = Itinerary.find(params[:id])
         @points = @itinerary.points
-        
+
         @hash = Gmaps4rails.build_markers(@points) do |point, marker|
           marker.lat point.latitude
           marker.lng point.longitude
@@ -21,6 +21,6 @@ class ItinerariesController < InheritedResources::Base
     end
 
      def create
-       create! { itineraries_path }
+       create! { itinerary_path(@itinerary) }
       end
 end
