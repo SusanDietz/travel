@@ -20,7 +20,7 @@ if (1== true)
     var description = prompt('Description','Description here');
 
     if  (description) {
-      var Point = {
+      var sentPoint = {
         name: name,
         description: description,
         latitude: event.latLng.d,
@@ -29,10 +29,13 @@ if (1== true)
       $.ajax({
         type: 'post',
         url: window.location+'/points#new',
-        data: {Point:Point},
+        data: {point: sentPoint},
         dataType: 'json',
         success: (function(){
-            $('.points-list').append([name, description])
+            $('.points-list').append(
+
+
+              )
           }),
       });
 
