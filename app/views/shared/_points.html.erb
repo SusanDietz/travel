@@ -11,9 +11,11 @@ window.author = <%= current_user.id %>
                     <span class='point-name'> <%= point.name %> </span><br>
                     <%= point.description %>
                     </li>
-                          %p= link_to 'Show', itinerary
-                          %p= link_to 'Edit', edit_itinerary_path(itinerary)
-                          %p= link_to 'Destroy', itinerary, :method => :delete, :data => { :confirm => 'Are you sure?' }
+<!--                     <span class='options'>
+                      <%= link_to 'Show', point %>
+                      <%= link_to 'Edit', edit_point_path(point) %>
+                      <%= link_to 'Destroy', point, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </span> -->
                 <% end %>
                 </ul>
             </aside>
