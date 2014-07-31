@@ -54,11 +54,15 @@ body{
 }
 
 #map-canvas {
-  width:33.3333%;
+    width:56%;
     height:calc(100% - 0);
     position:absolute;
     right:16px;
     top:50px;
     bottom:0;
     overflow:hidden;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: 0;
 }

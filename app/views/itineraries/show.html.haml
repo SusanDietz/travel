@@ -1,14 +1,21 @@
-=render "shared/sign_reg_buttons"
+= content_for :navbar do
+  = render 'shared/navbar'
+
+= content_for :footer do
+  = render "shared/social"
+
 %p#notice= notice
 
-%p
-  %b Name:
-  = @itinerary.name
-%p
-  %b Description:
-  = @itinerary.description
+.col-lg-5
+  %p.lead
+    %b Name:
+    = @itinerary.name
+  %p.lead
+    %b Description:
+    = @itinerary.description
 
-%div.clearfix
-  = render "shared/map"
-  = render "shared/points"
-= render "shared/social"
+
+    
+    = render "shared/points"
+= render "shared/map"
+
