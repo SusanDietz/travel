@@ -1,17 +1,22 @@
-= render "shared/sign_reg_buttons"
+= content_for :navbar do
+  = render 'shared/navbar'
+
 = image_tag avatar_url(current_user)
 = link_to "Invite a friend", new_user_invitation_path, :class => 'btn btn-primary'
-%h1 Listing itineraries
 
-%ul
+
+#left.col-xs-8
+  .row
+    %h2
+      .col-lg-8
+        Listing itineraries
+      .col-lg-4.text-right
+        =link_to 'New itinerary', new_itinerary_path, class: 'btn btn-primary'
+  %br
   - @itineraries.each do |itinerary|
-    %li
-      %h4= itinerary.name
-      %p= itinerary.description
-      %p= link_to 'Show', itinerary
-      %p= link_to 'Edit', edit_itinerary_path(itinerary)
-      %p= link_to 'Destroy', itinerary, :method => :delete, :data => { :confirm => 'Are you sure?' }
-%br
+    .panel.panel-default
+      .panel-heading
+        = link_to itinerary.name, itinerary
+    %p= itinerary.description
 
-= link_to 'New Itinerary', new_itinerary_path
 =render 'shared/social'
