@@ -1,3 +1,4 @@
+var sentPoint;
 $( document ).ready(function() {
 var directionsDisplay = new google.maps.DirectionsRenderer();
 var directionsService = new google.maps.DirectionsService();
@@ -27,7 +28,7 @@ if (1== true)
     var description = prompt('Description','Description here');
 
     if  (description) {
-      var sentPoint = {
+      sentPoint = {
         name: name,
         description: description,
         latitude: event.latLng.d,
@@ -38,9 +39,9 @@ if (1== true)
         type: 'post',
         url: window.location+'/points#new',
         data: {point: sentPoint},
-        dataType: 'json',
+        dataType: 'script',
         success: (function(){
-            $('.points-list').append( pointHtml )
+
           }),
       });
 
