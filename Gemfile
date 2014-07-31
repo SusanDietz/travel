@@ -8,12 +8,9 @@ gem 'rails', '3.2.16'
 gem "twitter-bootstrap-rails"
 gem 'pg'
 gem 'devise'
-<<<<<<< HEAD
-=======
 gem 'gravatar_image_tag'
 gem 'gravtastic'
 gem 'devise_invitable'
->>>>>>> avatar
 
 # Gems used only for assets and not required
 # in production environments by default.
