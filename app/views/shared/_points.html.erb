@@ -11,17 +11,29 @@ window.dest = <%= raw@pl.to_json%>
 <script>
 window.author = <%= current_user.id %>
 </script>
-            <aside class="col-md-7 float-left">
-                  <ul class='points-list'>
-                  <% @points.each do |point| %>
-                    <li>
-                        <span class='point-name'> <%= point.name %> </span><br>
-                        <%= point.description %>
-                        <div class="options">
-                            <%= link_to 'Destroy', itinerary_point_path(@itinerary, point),  method: :delete, remote: true%>
-                        </div>
 
-                    </li>
-                <% end %>
-                </ul>
-            </aside>
+
+<div id="left">
+  <div class="row">
+    <h2>
+      <div class="col-lg-8">
+        Points
+      </div>
+    </h2>
+  </div>
+  <br/>
+  <% @points.each do |point| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="row">
+            <div class='col-lg-8'>
+                <%= point.description %>
+            </div>
+            <div class="col-lg-4 text-right">
+                <%= link_to 'Destroy', itinerary_point_path(@itinerary, point),  method: :delete, remote: true, class: 'btn btn-danger btn-xs' %>
+            </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
