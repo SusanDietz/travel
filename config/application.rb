@@ -17,8 +17,8 @@ module Travel
       :address              => "smtp.gmail.com",
       :port                 =>  25,
       :domain               => 'gmail.com',
-      :user_name            => 'angmorozz@gmail.com',
-      :password             => 'gorbat78',
+      :user_name            => 'jjjj',
+      :password             => 'kkkkkk',
       :authentication       => 'plain',
       :enable_starttls_auto => true  }
     # Settings in config/environments/* take precedence over those specified here.
