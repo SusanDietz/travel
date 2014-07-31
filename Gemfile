@@ -5,7 +5,7 @@ gem 'rails', '3.2.16'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem "twitter-bootstrap-rails"
+gem "twitter-bootstrap-rails", :git => 'https://github.com/seyhunak/twitter-bootstrap-rails', :branch => 'bootstrap3'
 gem 'pg'
 gem 'devise'
 

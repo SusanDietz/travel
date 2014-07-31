@@ -1,8 +1,8 @@
-=render "shared/sign_reg_buttons"
+= content_for :navbar do
+  = render 'shared/navbar'
+
 %h1 New itinerary
 
 = render 'form'
-
-= link_to 'Back', itineraries_path
 
 = render "shared/map"
