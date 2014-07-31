@@ -16,8 +16,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Vkontakte"
       sign_in_and_redirect @user, :event => :authentication
     else
-      #flash[:notice] = "authentication error"
-      #redirect_to root_path
       session["devise.vkontakte_data"] = request.env["omniauth.auth"]
       redirect_to new_user_registration_url
     end

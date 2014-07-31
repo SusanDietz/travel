@@ -1,6 +1,13 @@
 <%= render "shared/sign_reg_buttons" %>
 </div>
 
+<% for user in @users %>
+  <tr>
+    <td><%= image_tag avatar_url(user) %></td>
+    <td><%= user.email %></td>
+  </tr>
+<% end %>
+
 <body>
     <header>
     </header>

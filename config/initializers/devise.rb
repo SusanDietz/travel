@@ -1,5 +1,9 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+# OAUTH_CREDENTIALS_PATH = Rails.root.join("config", "oauth.yml")
+# OAUTH_CREDENTIALS = YAML.load_file(OAUTH_CREDENTIALS_PATH)[Rails.env]
+# FB_KEYS = OAUTH_CREDENTIALS[:facebook]
+# VK_KEYS = OAUTH_CREDENTIALS[:vkontakte]
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -98,6 +102,45 @@ Devise.setup do |config|
 
   # Setup a pepper to generate the encrypted password.
   # config.pepper = '0246e0c98700082678359a575a6d544d72a6b76185e38316e0817cf8edd163af1b9dcff4961d457ac9ec17b5d98f0810a7e8e1cbe2411414a2971ea7065c202b'
+
+  # ==> Configuration for :invitable
+  # The period the generated invitation token is valid, after
+  # this period, the invited resource won't be able to accept the invitation.
+  # When invite_for is 0 (the default), the invitation won't expire.
+  # config.invite_for = 2.weeks
+
+  # Number of invitations users can send.
+  # - If invitation_limit is nil, there is no limit for invitations, users can
+  # send unlimited invitations, invitation_limit column is not used.
+  # - If invitation_limit is 0, users can't send invitations by default.
+  # - If invitation_limit n > 0, users can send n invitations.
+  # You can change invitation_limit column for some users so they can send more
+  # or less invitations, even with global invitation_limit = 0
+  # Default: nil
+  # config.invitation_limit = 5
+
+  # The key to be used to check existing users when sending an invitation
+  # and the regexp used to test it when validate_on_invite is not set.
+  # config.invite_key = {:email => /\A[^@]+@[^@]+\z/}
+  # config.invite_key = {:email => /\A[^@]+@[^@]+\z/, :username => nil}
+
+  # Flag that force a record to be valid before being actually invited
+  # Default: false
+  # config.validate_on_invite = true
+
+  # Resend invitation if user with invited status is invited again
+  # Default: true
+  # config.resend_invitation = false
+
+  # The class name of the inviting model. If this is nil,
+  # the #invited_by association is declared to be polymorphic.
+  # Default: nil
+  # config.invited_by_class_name = 'User'
+
+  # The column name used for counter_cache column. If this is nil,
+  # the #invited_by association is declared without counter_cache.
+  # Default: nil
+  # config.invited_by_counter_cache = :invitations_count
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -229,9 +272,12 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :facebook, '499785570155350', 'a999e09db2435c78d5f39bcb67c2732d'#, scope: 'user,public_repo'
+  # config.omniauth :facebook, FB_KEYS[:app_id], FB_KEYS[:app_secret]
+  # config.omniauth :vkontakte, VK_KEYS[:app_id], VK_KEYS[:app_secret], {:scope => VK_KEYS[:app_permissions]}
+  
+  config.omniauth :facebook, '499785570155350', 'a999e09db2435c78d5f39bcb67c2732d', 
+  secure_image_url: true
   config.omniauth :vkontakte, '4480250', 'vMcK2iSbLB1r9TagBEQB', scope: 'notify'
-  #config.omniauth :tweeter, '4480250', 'vMcK2iSbLB1r9TagBEQB', scope: 'notify'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

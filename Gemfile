@@ -8,6 +8,12 @@ gem 'rails', '3.2.16'
 gem "twitter-bootstrap-rails"
 gem 'pg'
 gem 'devise'
+<<<<<<< HEAD
+=======
+gem 'gravatar_image_tag'
+gem 'gravtastic'
+gem 'devise_invitable'
+>>>>>>> avatar
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -33,6 +39,8 @@ group :development do
   gem 'capistrano-rails',   '~> 1.1', require: false
   gem 'capistrano-bundler', '~> 1.1', require: false
   gem 'debugger'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'sqlite3'
 end
 

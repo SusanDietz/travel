@@ -17,3 +17,4 @@
 //= require gmaps/google
 //= require map
 //= require_tree .
+//= require gravtastic
