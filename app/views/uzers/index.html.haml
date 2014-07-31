@@ -1,0 +1,23 @@
+%h1 Listing uzers
+
+%table
+  %tr
+    %th Name
+    %th Email
+    %th Login
+    %th
+    %th
+    %th
+
+  - @uzers.each do |uzer|
+    %tr
+      %td= uzer.name
+      %td= uzer.email
+      %td= uzer.login
+      %td= link_to 'Show', uzer
+      %td= link_to 'Edit', edit_uzer_path(uzer)
+      %td= link_to 'Destroy', uzer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Uzer', new_uzer_path

@@ -1,4 +1,7 @@
 Travel::Application.routes.draw do
+  resources :uzers
+
+
   get "omniauth_callbacks/facebook"
 
   get "omniauth_callbacks/vkontakte"

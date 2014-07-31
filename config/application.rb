@@ -11,6 +11,16 @@ end
 
 module Travel
   class Application < Rails::Application
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 =>  25,
+      :domain               => 'gmail.com',
+      :user_name            => 'angmorozz@gmail.com',
+      :password             => 'gorbat78',
+      :authentication       => 'plain',
+      :enable_starttls_auto => true  }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

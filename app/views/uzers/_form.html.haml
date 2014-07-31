@@ -1,0 +1,19 @@
+= form_for @uzer do |f|
+  - if @uzer.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@uzer.errors.count, "error")} prohibited this uzer from being saved:"
+      %ul
+        - @uzer.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :login
+    = f.text_field :login
+  .actions
+    = f.submit 'Save'
