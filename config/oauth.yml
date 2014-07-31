@@ -1,8 +1,8 @@
-production:
-  :facebook:
-	 :app_id: 499785570155350
-	 :app_secret: a999e09db2435c78d5f39bcb67c2732d
-  :vkontakte:
-	:app_id: 4480250
-	:app_secret: vMcK2iSbLB1r9TagBEQB
-	:app_permissions: 'wall,friends'
+development:
+  facebook:
+    app_id: '499785570155350'
+    app_secret: 'a999e09db2435c78d5f39bcb67c2732d'
+  vkontakte:
+    app_id: '4480250'
+    app_secret: 'vMcK2iSbLB1r9TagBEQB'
+    app_permissions: 'wall,friends'

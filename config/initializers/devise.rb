@@ -1,9 +1,9 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
-# OAUTH_CREDENTIALS_PATH = Rails.root.join("config", "oauth.yml")
-# OAUTH_CREDENTIALS = YAML.load_file(OAUTH_CREDENTIALS_PATH)[Rails.env]
-# FB_KEYS = OAUTH_CREDENTIALS[:facebook]
-# VK_KEYS = OAUTH_CREDENTIALS[:vkontakte]
+OAUTH_CREDENTIALS_PATH = Rails.root.join("config", "oauth.yml")
+OAUTH_CREDENTIALS = YAML.load_file(OAUTH_CREDENTIALS_PATH)[Rails.env]
+FB_KEYS = OAUTH_CREDENTIALS['facebook']
+VK_KEYS = OAUTH_CREDENTIALS['vkontakte']
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -270,14 +270,17 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   # ==> OmniAuth
+  
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :facebook, FB_KEYS[:app_id], FB_KEYS[:app_secret]
-  # config.omniauth :vkontakte, VK_KEYS[:app_id], VK_KEYS[:app_secret], {:scope => VK_KEYS[:app_permissions]}
-  
-  config.omniauth :facebook, '499785570155350', 'a999e09db2435c78d5f39bcb67c2732d', 
-  secure_image_url: true
-  config.omniauth :vkontakte, '4480250', 'vMcK2iSbLB1r9TagBEQB', scope: 'notify'
+#   короче замени там на config.omniauth :facebook, FB_KEYS['app_id'], FB_KEYS['app_secret']
+# config.omniauth :vkontakte, VK_KEYS['app_id'], VK_KEYS['app_secret'], {:scope => VK_KEYS['app_permissions']}
+  config.omniauth :facebook, FB_KEYS['app_id'], FB_KEYS['app_secret']
+  config.omniauth :vkontakte, VK_KEYS[:app_id], VK_KEYS[:app_secret], {:scope => VK_KEYS[:app_permissions]}
+  #secure_image_url: true
+  # config.omniauth :facebook, '499785570155350', 'a999e09db2435c78d5f39bcb67c2732d', 
+  # 
+  # config.omniauth :vkontakte, '4480250', 'vMcK2iSbLB1r9TagBEQB', scope: 'notify'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
