@@ -19,4 +19,5 @@
         = link_to itinerary.name, itinerary
     %p= itinerary.description
 
-=render 'shared/social'
+= content_for :footer do
+  =render 'shared/social'

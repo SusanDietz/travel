@@ -78,20 +78,15 @@ point-name {
   width: auto; display:inline;
 }
 
-.social {
-    margin: 0 auto;
-    width: 250px;
-}
 
 #vk, #fb {
     display: inline-block;
-    height: 100px;
-    width: 100px;
 }
 
-#vk {
-    background: url(image-path('vk.png'));
+.vk,
+.fb {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
 }
-#fb {
-    background: url(image-path('fb.jpg'));
-}
+

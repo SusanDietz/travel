@@ -22,18 +22,9 @@ window.author = <%= current_user.id %>
     </h2>
   </div>
   <br/>
+  <div id="points-wrap">
   <% @points.each do |point| %>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="row">
-            <div class='col-lg-8'>
-                <%= point.description %>
-            </div>
-            <div class="col-lg-4 text-right">
-                <%= link_to 'Destroy', itinerary_point_path(@itinerary, point),  method: :delete, remote: true, class: 'btn btn-danger btn-xs' %>
-            </div>
-        </div>
-      </div>
-    </div>
+    <%= render 'points/point', point: point%>
   <% end %>
+  </div>
 </div>

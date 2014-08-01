@@ -1,9 +1,6 @@
 = content_for :navbar do
   = render 'shared/navbar'
 
-= content_for :footer do
-  = render "shared/social"
-
 %p#notice= notice
 
 .col-lg-5
@@ -13,9 +10,8 @@
   %p.lead
     %b Description:
     = @itinerary.description
-
-
-    
     = render "shared/points"
 = render "shared/map"
 
+= content_for :footer do
+  = render "shared/social"
