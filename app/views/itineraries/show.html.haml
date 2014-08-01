@@ -2,15 +2,18 @@
   = render 'shared/navbar'
 
 
-.col-lg-5
-  %p.lead
-    %b Name:
-    = @itinerary.name
-  %p.lead
-    %b Description:
-    = @itinerary.description
-    = render "shared/points"
-= render "shared/map"
+%p.lead
+  %b Название маршрута:
+  = @itinerary.name
+= render "shared/points"
+%br
+%p.lead
+  %b Описание:
+  %blockquote= @itinerary.description
+
+
+= content_for :map do
+  = render "shared/map"
 
 = content_for :footer do
-  .foot= render "shared/social"
+  = render "shared/social"
