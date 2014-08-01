@@ -1,8 +1,8 @@
 = content_for :navbar do
   = render 'shared/navbar'
 
-= image_tag avatar_url(current_user)
-= link_to "Invite a friend", new_user_invitation_path, :class => 'btn btn-primary'
+/ = image_tag avatar_url(current_user)  - Неправильно работает
+/ = link_to "Invite a friend", new_user_invitation_path, :class => 'btn btn-primary'
 
 
 #left.col-xs-8

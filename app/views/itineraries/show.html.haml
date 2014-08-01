@@ -1,7 +1,6 @@
 = content_for :navbar do
   = render 'shared/navbar'
 
-%p#notice= notice
 
 .col-lg-5
   %p.lead
@@ -14,4 +13,4 @@
 = render "shared/map"
 
 = content_for :footer do
-  = render "shared/social"
+  .foot= render "shared/social"
