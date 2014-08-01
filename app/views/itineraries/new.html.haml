@@ -1,7 +1,7 @@
 = content_for :navbar do
   = render 'shared/navbar'
 
-%h1 New itinerary
+= content_for(:page_header) { 'New itinerary' }
 
 = render 'form'
 = content_for :footer do

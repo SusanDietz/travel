@@ -22,23 +22,19 @@
     = yield :navbar
     .container
       .row
-        = bootstrap_flash
-        = yield
-    / .span3
-    / .well.sidebar-nav
-    /   %h3 Providers
-    /   %ul.nav.nav-list
-    /     - if !user_signed_in?
-    /       %li= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
-    /       %li= link_to "Sign in with Vkontakte", user_omniauth_authorize_path(:vkontakte)
-    / .span3
-    /   .well.sidebar-nav
-    /     %h3 Sidebar
-    /     %ul.nav.nav-list
-    /       %li.nav-header Sidebar
-    /       %li= link_to "Link 1", "/path1"
-    /       %li= link_to "Link 2", "/path2"
-    /       %li= link_to "Link 3", "/path3"
+        .col-lg-6
+          - if content_for?(:page_header) || content_for?(:page_actions)
+            .page-header
+              %h2
+                .row
+                  .col-lg-8
+                    = yield :page_header
+                  .col-lg-4.text-right
+                    = yield :page_actions
+          = bootstrap_flash
+          = yield
+        .col-lg-6
+          = yield :map
 
   %footer
     = yield :footer

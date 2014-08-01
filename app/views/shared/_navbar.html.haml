@@ -1,14 +1,12 @@
 .navbar.navbar-custom.navbar-fixed-top
   .navbar-header
-    %a.navbar-brand{href: "#"} Travel
+    = link_to 'Travel', root_url, class: 'navbar-brand'
     %a.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse"}
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
   .navbar-collapse.collapse
     %ul.nav.navbar-nav
-      %li
-        = link_to 'Домашняя страница', root_url
       %li
         = link_to 'Маршруты', itineraries_url
     %ul.nav.navbar-nav.navbar-right

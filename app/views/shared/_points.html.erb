@@ -13,18 +13,8 @@ window.author = <%= current_user.id %>
 </script>
 
 
-<div id="left">
-  <div class="row">
-    <h2>
-      <div class="col-lg-8">
-        Points
-      </div>
-    </h2>
-  </div>
-  <br/>
-  <div id="points-wrap">
+<div class='row' id='points-wrap'>
   <% @points.each do |point| %>
-    <%= render 'points/point', point: point%>
+      <%= render 'points/point', point: point, itinerary: @itinerary %>
   <% end %>
-  </div>
 </div>

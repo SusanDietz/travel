@@ -14,7 +14,7 @@ html,body{
 }
 
 body{
-    padding-top:50px; /*padding for navbar*/
+    padding-top:60px; /*padding for navbar*/
 }
 
 .navbar-custom .icon-bar {
@@ -54,16 +54,10 @@ body{
 }
 
 #map-canvas {
-    width:56%;
-    height:calc(100% - 0);
-    position:absolute;
-    right:16px;
-    top:50px;
-    bottom:0;
-    overflow:hidden;
-    margin-top: 30px;
+    width:100%;
+    min-height: 700px;
+    border: 5px solid #e7e7e7;;
 }
-
 
 .navbar-nav.navbar-right:last-child {
   margin-right: 0;
@@ -73,5 +67,36 @@ body{
   position: absolute;
   bottom: 0;
   left: 50%;
+}
+
+.container {
+  width: 97%;
+}
+
+.page-header {
+  margin-top: 20px;
+}
+
+.arrow {
+  font-size: 30px;
+  vertical-align: sub;
+}
+
+.red-cross,
+.red-cross:hover,
+.red-cross:active,
+.red-cross:visited {
+  color: red;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+.label-90 {
+  font-size: 90%;
+}
+
+.point {
+  margin: 5px 0;
+  display: inline-flex;
 }
 

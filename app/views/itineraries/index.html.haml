@@ -4,20 +4,18 @@
 / = image_tag avatar_url(current_user)  - Неправильно работает
 / = link_to "Invite a friend", new_user_invitation_path, :class => 'btn btn-primary'
 
+= content_for(:page_header) { 'Listing itineraries' }
+= content_for(:page_actions) { link_to 'New itinerary', new_itinerary_path, class: 'btn btn-primary' }
 
-#left.col-xs-8
-  .row
-    %h2
-      .col-lg-8
-        Listing itineraries
-      .col-lg-4.text-right
-        =link_to 'New itinerary', new_itinerary_path, class: 'btn btn-primary'
-  %br
+.list-group
   - @itineraries.each do |itinerary|
-    .panel.panel-default
-      .panel-heading
-        = link_to itinerary.name, itinerary
-    %p= itinerary.description
+    = link_to itinerary, class: 'list-group-item' do
+      %h4.list-group-item-heading
+        %strong= itinerary.name
+      %p.list-group-item-text= itinerary.description
+
+= content_for :map do
+  = render "shared/map"
 
 = content_for :footer do
   =render 'shared/social'
