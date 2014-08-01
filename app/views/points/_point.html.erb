@@ -1,0 +1,12 @@
+<div class="panel panel-default" id='point<%=point.id%>'>
+  <div class="panel-heading">
+    <div class="row">
+        <div class='col-lg-8'>
+            <%= point.description %>
+        </div>
+        <div class="col-lg-4 text-right">
+            <%= link_to 'Destroy', itinerary_point_path(@itinerary, point),  method: :delete, remote: true, class: 'btn btn-danger btn-xs' %>
+        </div>
+    </div>
+  </div>
+</div>

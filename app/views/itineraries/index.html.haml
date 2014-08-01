@@ -1,7 +1,6 @@
 = content_for :navbar do
   = render 'shared/navbar'
 
-#map-canvas
 
 #left.col-xs-8
   .row
@@ -17,4 +16,5 @@
         = link_to itinerary.name, itinerary
     %p= itinerary.description
 
-=render 'shared/social'
+= content_for :footer do
+  =render 'shared/social'
