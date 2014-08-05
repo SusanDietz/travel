@@ -1,55 +1,44 @@
 var sentPoint;
 $( document ).ready(function() {
-
-var directionsDisplay = new google.maps.DirectionsRenderer();
-var directionsService = new google.maps.DirectionsService();
-var mapOptions = {
-  center: new google.maps.LatLng(53.184562, 44.973993),
-  zoom: 18,
-  mapTypeId: google.maps.MapTypeId.HYBRID
-};
-
-
-function calcRoute() {
-
-  var request = {
-      origin: [ orgn ],
-      destination: [ dest ],
-      waypoints: [ gmap_points ],
-      optimizeWaypoints: true,
-      travelMode: google.maps.TravelMode.DRIVING
+  var directionsDisplay;
+  var directionsService = new google.maps.DirectionsService();
+  var mapOptions = {
+    center: new google.maps.LatLng(53.184562, 44.973993),
+    zoom: 18,
   };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-      var route = response.routes[0];
+  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  directionsDisplay.setMap(map);
+  if (gmap_points.length > 1) {
+    var start = new google.maps.LatLng(gmap_points[0].lat, gmap_points[0].lng);
+    var end = new google.maps.LatLng(gmap_points[gmap_points.length-1].lat, gmap_points[gmap_points.length-1].lng);
+    var waypoints = [];
+    var  waypoint;
+    for (var i=1; i<gmap_points.length-1; i++) {
+      waypoint = new google.maps.LatLng(gmap_points[i].lat, gmap_points[i].lng);
+      waypoints.push({
+        location: waypoint,
+        stopover: true
+      });
+    };
+    var request = {
+        origin: start,
+        destination: end,
+        waypoints: waypoints,
+        travelMode: google.maps.TravelMode.DRIVING
+    };
+    directionsService.route(request, function(response, status) {
+      alert(status);
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(response);
       }
-  });
-}
-
-calcRoute()
-
-
-var handler = Gmaps.build('Google');
-handler.buildMap({provider: mapOptions,  internal: {id: 'map-canvas'}}, function(){
-
-var markers = handler.addMarkers(gmap_points, {draggable: true})
-handler.bounds.extendWith(markers);
-handler.fitMapToBounds();
-
-});
-
-
-if (1== true)
-  {
-    google.maps.event.addListener(handler.getMap(), 'click', function(event) {
-        console.log(event.latLng);
     });
+  };
 
-    google.maps.event.addListener(handler.getMap(), 'dblclick', function(event) {
-
+  google.maps.event.addListener(map, 'dblclick', function(event) {
     var description = prompt('Description','Description here');
-
     if  (description) {
       sentPoint = {
         name: name,
@@ -70,36 +59,19 @@ if (1== true)
 
       description = '<div id="tag">' + description + '</div>';
       var infowindow = new google.maps.InfoWindow({
-      content: description
+        content: description
       });
       var marker = new google.maps.Marker({
           position: event.latLng,
-          map: handler.getMap(),
+          map: map,
           title: name,
       });
-    };
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.open(handler.getMap(),marker);
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map.getMap(),marker);
       });
-    });
-  }
-
-function calcRoute() {
-  var origin      = orgn;
-  var destination = dest;
-  var request = {
-      origin:      origin,
-      destination: destination,
-      travelMode:  google.maps.TravelMode.DRIVING
-  };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    }
+    };
   });
-}
 
-$('.points-list li').on('mouseenter', function() {
-  $(this).find('.options').show
 });
-});
+
+
