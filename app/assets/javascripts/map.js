@@ -11,6 +11,7 @@ $( document ).ready(function() {
 
   directionsDisplay = new google.maps.DirectionsRenderer();
   directionsDisplay.setMap(map);
+
   if (gmap_points.length > 1) {
     var start = new google.maps.LatLng(gmap_points[0].lat, gmap_points[0].lng);
     var end = new google.maps.LatLng(gmap_points[gmap_points.length-1].lat, gmap_points[gmap_points.length-1].lng);
@@ -30,7 +31,6 @@ $( document ).ready(function() {
         travelMode: google.maps.TravelMode.DRIVING
     };
     directionsService.route(request, function(response, status) {
-      alert(status);
       if (status == google.maps.DirectionsStatus.OK) {
         directionsDisplay.setDirections(response);
       }
@@ -53,7 +53,6 @@ $( document ).ready(function() {
         data: {point: sentPoint},
         dataType: 'script',
         success: (function(){
-
           }),
       });
 
