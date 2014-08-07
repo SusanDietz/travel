@@ -12,6 +12,8 @@ gem 'gravatar_image_tag'
 gem 'gravtastic'
 gem 'devise_invitable'
 gem 'cancan'
+gem 'kaminari'
+gem 'has_scope'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

@@ -1,0 +1,2 @@
+$('.list-group').html("<%= j render  'itineraries_list',  itineraries: @itineraries %>");
+$('ul.pagination').replaceWith('<%= escape_javascript(paginate @itineraries, remote: true)%>')

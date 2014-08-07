@@ -38,7 +38,6 @@ $( document ).ready(function() {
   };
 
   google.maps.event.addListener(map, 'dblclick', function(event) {
-    if
     var description = prompt('Description','Description here');
     if  (description) {
       sentPoint = {
