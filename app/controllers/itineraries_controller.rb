@@ -1,6 +1,7 @@
 class ItinerariesController < InheritedResources::Base
     load_and_authorize_resource
-     before_filter :authenticate_user!
+    has_scope :page, :default => 1
+
     def show
         @itinerary = Itinerary.find(params[:id])
         @points = @itinerary.points
@@ -27,7 +28,8 @@ class ItinerariesController < InheritedResources::Base
         end
     end
   def index
-    @hash = Gmaps4rails.build_markers(Itinerary.first.points) do |point, marker|
+    @itineraries = Itinerary.page(params[:page]).per(5)
+    @hash = Gmaps4rails.build_markers(Itinerary.first.try(:points)) do |point, marker|
       marker.lat point.latitude
       marker.lng point.longitude
       marker.infowindow point.description
@@ -35,6 +37,7 @@ class ItinerariesController < InheritedResources::Base
     respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @hash }
+        format.js
     end
   end
 
