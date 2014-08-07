@@ -10,7 +10,13 @@
       %li
         = link_to 'Маршруты', itineraries_url
     %ul.nav.navbar-nav.navbar-right
-      %li
-        = link_to current_user.try(:email), '#'
-      %li
-        = link_to 'Выйти', destroy_user_session_path, method: 'delete'
+      - if current_user
+        %li
+          = link_to current_user.try(:email), '#'
+        %li
+          = link_to 'Выйти', destroy_user_session_path, method: 'delete'
+      - else
+        %li
+          = link_to 'Войти', new_user_session_path
+        %li
+          = link_to 'Зарегистрироваться', new_user_registration_path

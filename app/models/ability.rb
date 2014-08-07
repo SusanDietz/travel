@@ -5,11 +5,12 @@ class Ability
         user ||= User.new
         can :read, :all
         can :destroy,  Itinerary do |itinerary|
-            itinerary.try(:user_id) == user.id
+            itinerary.try(:owner_id) == user.id
         end
-        can :create, Point do |point|
-            point.itinerary.try(:user_id) == user.id
+        can [:create, :destroy] , Point do |point|
+            point.itinerary.try(:owner_id) == user.id
         end
-        can :create, Itinerary
+
+        can :create, Itinerary unless user.new_record?
   end
 end

@@ -5,7 +5,6 @@ class ItinerariesController < InheritedResources::Base
     def show
         @itinerary = Itinerary.find(params[:id])
         @points = @itinerary.points
-
         @hash = Gmaps4rails.build_markers(@points) do |point, marker|
           marker.lat point.latitude
           marker.lng point.longitude
@@ -43,9 +42,10 @@ class ItinerariesController < InheritedResources::Base
 
   def create
     @itinerary = Itinerary.new(params[:itinerary])
-    @itinerary.user_id = current_user.id
+    @itinerary.owner_id = current_user.id
     respond_to do |format|
     if @itinerary.save
+      UserItinerary.create(user_id: current_user.id, itinerary_id: @itinerary.id)
       format.html { redirect_to @itinerary, notice:'itinerary was successfully created.' }
       format.json { render json: @itinerary, status: :created, location: @itinerary }
     end
@@ -55,7 +55,6 @@ class ItinerariesController < InheritedResources::Base
   # # POST /users
   # # POST /users.json
   #   @user = User.new(params[:user])
-
   #   respond_to do |format|
   #     if @user.save
   #       # Сказать UserMailer отослать приветственное письмо после сохранения
