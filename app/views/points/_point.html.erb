@@ -2,6 +2,8 @@
     &nbsp;
     <span class='label label-success label-90'>
         <%= point.description %>
-        <%=link_to '&#10006;'.html_safe, itinerary_point_path(itinerary, point), remote: true, method: :delete, class: 'red-cross' %>
+        <% if can? :destroy,  @itinerary %>
+          <%=link_to '&#10006;'.html_safe, itinerary_point_path(itinerary, point), remote: true, method: :delete, class: 'red-cross' %>
+        <% end %>
     </span>
 </span>

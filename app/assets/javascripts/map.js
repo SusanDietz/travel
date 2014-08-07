@@ -38,6 +38,7 @@ $( document ).ready(function() {
   };
 
   google.maps.event.addListener(map, 'dblclick', function(event) {
+    if
     var description = prompt('Description','Description here');
     if  (description) {
       sentPoint = {
@@ -49,25 +50,27 @@ $( document ).ready(function() {
 
       $.ajax({
         type: 'post',
-        url: window.location+'/points#new',
+        url: window.location+'/points#create',
         data: {point: sentPoint},
         dataType: 'script',
+        error: (function() { alert('Это не ваш маршрут');}),
         success: (function(){
-          }),
+            description = '<div id="tag">' + description + '</div>';
+            var infowindow = new google.maps.InfoWindow({
+              content: description
+            });
+            var marker = new google.maps.Marker({
+                position: event.latLng,
+                map: map,
+                title: name,
+            });
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map.getMap(),marker);
+          });
+        }),
       });
 
-      description = '<div id="tag">' + description + '</div>';
-      var infowindow = new google.maps.InfoWindow({
-        content: description
-      });
-      var marker = new google.maps.Marker({
-          position: event.latLng,
-          map: map,
-          title: name,
-      });
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map.getMap(),marker);
-      });
+
     };
   });
 

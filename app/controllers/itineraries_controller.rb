@@ -1,4 +1,5 @@
 class ItinerariesController < InheritedResources::Base
+    load_and_authorize_resource
      before_filter :authenticate_user!
     def show
         @itinerary = Itinerary.find(params[:id])
@@ -25,9 +26,27 @@ class ItinerariesController < InheritedResources::Base
           format.json { render json: @pl }
         end
     end
+  def index
+    @hash = Gmaps4rails.build_markers(Itinerary.first.points) do |point, marker|
+      marker.lat point.latitude
+      marker.lng point.longitude
+      marker.infowindow point.description
+    end
+    respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @hash }
+    end
+  end
 
   def create
-      create! { itinerary_path(@itinerary) }
+    @itinerary = Itinerary.new(params[:itinerary])
+    @itinerary.user_id = current_user.id
+    respond_to do |format|
+    if @itinerary.save
+      format.html { redirect_to @itinerary, notice:'itinerary was successfully created.' }
+      format.json { render json: @itinerary, status: :created, location: @itinerary }
+    end
+  end
   # create вызывается много раз, работает не правильно
   #   create! { itineraries_path }
   # # POST /users
