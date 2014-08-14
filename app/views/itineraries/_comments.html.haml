@@ -1,0 +1,10 @@
+- itinerary.comments.each do |comment|
+  %blockquote
+    %p
+      %b= comment.title
+      (by 
+      %b #{comment.user.email}
+      , #{comment.created_at.to_s(:short)})
+
+    %p= comment.comment
+  

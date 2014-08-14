@@ -30,6 +30,7 @@ gem 'haml-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
+gem 'acts_as_commentable', '3.0.1'
 
 group :development do
   gem 'capistrano', '~> 3.1.0'
