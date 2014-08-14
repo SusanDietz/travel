@@ -11,6 +11,11 @@ Travel::Application.routes.draw do
   resources :leads
   resources :itineraries do
     resources :points
+    member do
+      get 'participate'
+    end
+
+    resources :comments, only: [:create, :update, :destroy]
   end
 
   # The priority is based upon order of creation:

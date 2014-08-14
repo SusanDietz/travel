@@ -12,5 +12,8 @@ class Ability
         end
 
         can :create, Itinerary unless user.new_record?
+        can :participate, Itinerary do |itinerary|
+          !user.new_record? && !user.participate?(itinerary)
+        end
   end
 end

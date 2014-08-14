@@ -1,15 +1,30 @@
 = content_for :navbar do
   = render 'shared/navbar'
 
-
-%p.lead
-  %b Название маршрута:
-  = @itinerary.name
+.row
+  .col-lg-9
+    %p.lead
+      %b Название маршрута:
+      = @itinerary.name
+  .col-lg-3.text-right
+    = link_to 'Вступить', participate_itinerary_path(@itinerary), class: 'btn btn-success' if can?(:participate, @itinerary)
 = render "shared/points"
 %br
 %p.lead
   %b Описание:
   %blockquote= @itinerary.description
+
+%p.lead 
+  %b Участники
+  %ul
+  - @itinerary.users.each do |user|
+    %li= "#{user.fullname} (#{user.email})"
+
+%p.lead
+  %b Комментарии
+  = render 'comments', itinerary: @itinerary
+
+.col-lg-8= render 'comment_form', comment: @comment
 
 = content_for :map do
   = render "shared/map"
