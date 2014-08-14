@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name
   attr_accessible :nickname, :provider, :url, :username, :avatar_url
   # attr_accessible :title, :body
-  has_many :Itineraries
-
+  has_many :itineraries_users
+  has_many :itineraries, through: :itineraries_users
 
   def self.find_for_facebook_oauth access_token
     if user = User.where(:url => access_token.info.urls.Facebook).first

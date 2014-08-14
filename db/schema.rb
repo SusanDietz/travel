@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140731100919) do
+ActiveRecord::Schema.define(:version => 20140814104805) do
 
   create_table "itineraries", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(:version => 20140731100919) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "user_id"
+  end
+
+  create_table "itineraries_users", :force => true do |t|
+    t.integer "user_id"
+    t.string  "user_email"
+    t.integer "itinerary_id"
+  end
+
+  create_table "joins", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "itinerary_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "leads", :force => true do |t|
@@ -39,28 +52,6 @@ ActiveRecord::Schema.define(:version => 20140731100919) do
     t.string   "name"
     t.integer  "itinerary_id"
   end
-
-  create_table "polzovatels", :force => true do |t|
-    t.string   "username"
-    t.string   "nickname"
-    t.string   "provider"
-    t.string   "url"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0,  :null => false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-  end
-
-  add_index "polzovatels", ["email"], :name => "index_polzovatels_on_email", :unique => true
-  add_index "polzovatels", ["reset_password_token"], :name => "index_polzovatels_on_reset_password_token", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -97,5 +88,13 @@ ActiveRecord::Schema.define(:version => 20140731100919) do
   add_index "users", ["invitations_count"], :name => "index_users_on_invitations_count"
   add_index "users", ["invited_by_id"], :name => "index_users_on_invited_by_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "uzers", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "login"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
