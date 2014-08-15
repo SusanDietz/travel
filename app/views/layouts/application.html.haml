@@ -37,6 +37,8 @@
           = yield :map
 
   %footer
-    = yield :footer
-    %p &copy; Company 2014
+    .row
+      .col-lg-3.col-lg-offset-2
+        = yield :footer
+        &copy; Company 2014
 = render 'shared/yandex'
