@@ -4,7 +4,7 @@
 / = image_tag avatar_url(current_user)  - Неправильно работает
 / = link_to "Invite a friend", new_user_invitation_path, :class => 'btn btn-primary'
 
-= content_for(:page_header) { 'Listing itineraries' }
+= content_for(:page_header) { can_view_self_itineraries? ? 'Мои маршруты' : 'Listing itineraries' }
 = content_for(:page_actions) { link_to 'New itinerary', new_itinerary_path, class: 'btn btn-primary' if can? :create, Itinerary }
 
 = paginate @itineraries, :remote => true

@@ -38,7 +38,12 @@ class ItinerariesController < InheritedResources::Base
   end
 
   def index
-    @itineraries = Itinerary.page(params[:page]).per(5)
+    if params[:owned] && current_user.present?
+      scope = current_user.itineraries
+    else
+      scope = Itinerary
+    end
+    @itineraries = scope.order('created_at desc').page(params[:page]).per(5)
     @hash = Gmaps4rails.build_markers(Itinerary.first.try(:points)) do |point, marker|
       marker.lat point.latitude
       marker.lng point.longitude

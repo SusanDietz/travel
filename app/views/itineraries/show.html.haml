@@ -16,12 +16,14 @@
 
 %p.lead 
   %b Участники
+  = "(#{@itinerary.users.size})"
   %ul
   - @itinerary.users.each do |user|
     %li= "#{user.fullname} (#{user.email})"
 
 %p.lead
   %b Комментарии
+  = "(#{@itinerary.comments.size})"
   = render 'comments', itinerary: @itinerary
 
 .col-lg-6= render('comment_form', comment: @comment) if can? :create, Comment

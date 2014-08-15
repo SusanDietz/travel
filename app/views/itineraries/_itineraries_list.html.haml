@@ -2,4 +2,8 @@
   = link_to itinerary, class: 'list-group-item' do
     %h4.list-group-item-heading
       %strong= itinerary.name
-    %p.list-group-item-text= itinerary.description
+    %p.list-group-item-text
+      = itinerary.description
+      %p
+        %b Количество участников:
+        = itinerary.users.size

@@ -7,6 +7,9 @@
       %span.icon-bar
   .navbar-collapse.collapse
     %ul.nav.navbar-nav
+      - if current_user
+        %li
+          = link_to 'Мои маршруты', itineraries_url(owned: true)
       %li
         = link_to 'Маршруты', itineraries_url
     %ul.nav.navbar-nav.navbar-right
