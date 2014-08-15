@@ -11,7 +11,10 @@ class Ability
             point.itinerary.try(:owner_id) == user.id
         end
 
-        can :create, Itinerary unless user.new_record?
+        unless user.new_record?
+          can :create, Itinerary
+          can :create, Comment
+        end
         can :participate, Itinerary do |itinerary|
           !user.new_record? && !user.participate?(itinerary)
         end

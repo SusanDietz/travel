@@ -24,7 +24,7 @@
   %b Комментарии
   = render 'comments', itinerary: @itinerary
 
-.col-lg-8= render 'comment_form', comment: @comment
+.col-lg-6= render('comment_form', comment: @comment) if can? :create, Comment
 
 = content_for :map do
   = render "shared/map"
