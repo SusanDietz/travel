@@ -2,7 +2,7 @@
 <span class='point' id="<%=point.id%>">
   &nbsp;
   <span class='label label-success label-90'>
-    <botton id ="pointbot>">  <%= point.name%> </botton>
+   <botton id = "pointbot">  <%= point.name%> </botton>
     <% if can? :destroy,  @itinerary %>
     <%=link_to '&#10006;'.html_safe, itinerary_point_path(itinerary, point), remote: true, method: :delete, class: 'red-cross' %>
     <% end %>
