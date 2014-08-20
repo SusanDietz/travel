@@ -10,8 +10,8 @@ window.gmap_points = <%= raw@hash.to_json %>
 </div>
 
 <script>
-$( "#pointbot" ).click (function() {
-  $('info').slideToggle();
+$( ".pointbot" ).click (function() {
+  $(this).parent().nextAll(".description").slideToggle();
 	
 //   google.maps.event.addListener(point, '#pointbot', function() {
 //   	map.setZoom(8)
