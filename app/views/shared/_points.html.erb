@@ -2,16 +2,20 @@
 <script>
 window.gmap_points = <%= raw@hash.to_json %>
 </script>
-<script>
-window.orgn = <%= raw@pf.to_json %>
-</script>
-<script>
-window.dest = <%= raw@pl.to_json%>
-</script>
-
 
 <div class='row' id='points-wrap'>
   <% @points.each do |point| %>
-      <%= render 'points/point', point: point, itinerary: @itinerary %>
+    <%= render 'points/point', point: point, itinerary: @itinerary %>  
   <% end %>
 </div>
+
+<script>
+$( "#pointbot" ).click (function() {
+  $('info').slideToggle();
+	
+//   google.maps.event.addListener(point, '#pointbot', function() {
+//   	map.setZoom(8)
+//   	map.setCenter(current_point.getPosition)
+//   })
+// });
+</script>

@@ -36,8 +36,9 @@ $( document ).ready(function() {
       }
     });
   };
-
+  
   google.maps.event.addListener(map, 'dblclick', function(event) {
+    var name = prompt('Name','Name here')
     var description = prompt('Description','Description here');
     if  (description) {
       sentPoint = {
@@ -54,9 +55,9 @@ $( document ).ready(function() {
         dataType: 'script',
         error: (function() { alert('Это не ваш маршрут');}),
         success: (function(){
-            description = '<div id="tag">' + description + '</div>';
+            description = '<div id="tag">' +name + description + '</div>';
             var infowindow = new google.maps.InfoWindow({
-              content: description
+              content: name + description 
             });
             var marker = new google.maps.Marker({
                 position: event.latLng,
@@ -68,11 +69,8 @@ $( document ).ready(function() {
           });
         }),
       });
-
-
     };
   });
-
 });
 
 

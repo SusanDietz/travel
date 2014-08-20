@@ -35,6 +35,19 @@ ActiveRecord::Schema.define(:version => 20140814125342) do
     t.integer  "owner_id"
   end
 
+  create_table "itineraries_users", :force => true do |t|
+    t.integer "user_id"
+    t.string  "user_email"
+    t.integer "itinerary_id"
+  end
+
+  create_table "joins", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "itinerary_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "leads", :force => true do |t|
     t.string   "email"
     t.integer  "source"
