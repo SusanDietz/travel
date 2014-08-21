@@ -8,7 +8,6 @@ $( document ).ready(function() {
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-
   directionsDisplay = new google.maps.DirectionsRenderer();
   directionsDisplay.setMap(map);
 
@@ -28,6 +27,7 @@ $( document ).ready(function() {
         origin: start,
         destination: end,
         waypoints: waypoints,
+        optimizeWaypoints: true, 
         travelMode: google.maps.TravelMode.DRIVING
     };
     directionsService.route(request, function(response, status) {
@@ -55,18 +55,24 @@ $( document ).ready(function() {
         dataType: 'script',
         error: (function() { alert('Это не ваш маршрут');}),
         success: (function(){
-            description = '<div id="tag">' +name + description + '</div>';
-            var infowindow = new google.maps.InfoWindow({
-              content: name + description 
-            });
-            var marker = new google.maps.Marker({
-                position: event.latLng,
-                map: map,
-                title: name,
-            });
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map.getMap(),marker);
+          description = '<div id="tag">' +name + description + '</div>';
+          var infowindow = new google.maps.InfoWindow({
+            content: name + description 
           });
+          var marker = new google.maps.Marker({
+              position: event.latLng,
+              map: map,
+              title: name,
+          });
+          google.maps.event.addListener(waypoints, 'click', function() {
+          //  infowindow.open(map.getMap(),marker);
+            map.setZoom(8)
+            map.setCenter(current_point.getPosition)
+          });
+
+          $("#map-canvas").load("#map-canvas");
+          $("#points-warp").load("#points-warp");
+
         }),
       });
     };

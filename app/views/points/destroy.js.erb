@@ -1,1 +1,7 @@
-$('#point<%=@point.id%>').fadeOut();
+var destroy = function () {
+	$('#<%=@point.id%>').fadeOut();
+}
+
+$( destroy ).ready(function() {
+  $("#map-canvas").load("#map-canvas");
+})

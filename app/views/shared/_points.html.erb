@@ -10,12 +10,7 @@ window.gmap_points = <%= raw@hash.to_json %>
 </div>
 
 <script>
-$( ".pointbot" ).click (function() {
+$( ".pointbot" ).mouseover (function() {
   $(this).parent().nextAll(".description").slideToggle();
-	
-//   google.maps.event.addListener(point, '#pointbot', function() {
-//   	map.setZoom(8)
-//   	map.setCenter(current_point.getPosition)
-//   })
- });
+});
 </script>
