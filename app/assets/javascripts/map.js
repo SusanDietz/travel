@@ -64,19 +64,13 @@ $( document ).ready(function() {
               map: map,
               title: name,
           });
-          google.maps.event.addListener(waypoints, 'click', function() {
-          //  infowindow.open(map.getMap(),marker);
-            map.setZoom(8)
-            map.setCenter(current_point.getPosition)
-          });
 
           $("#map-canvas").load("#map-canvas");
           $("#points-warp").load("#points-warp");
-
-        }),
-      });
-    };
-  });
-});
+        })
+      })
+    }
+  })
+})
 
 

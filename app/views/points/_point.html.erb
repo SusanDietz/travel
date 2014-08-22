@@ -2,7 +2,7 @@
 <span class='point' id="<%=point.id%>">
   &nbsp;
   <span class='label label-success label-90'>
-    <botton class = "pointbot">  <%= point.name%> </botton>
+    <botton class = "pointbot" lat="<%= point.latitude %>", lng = "<%= point.longitude %>">  <%= point.name%> </botton>
     <% if can? :destroy,  @itinerary %>
       <%=link_to '&#10006;'.html_safe, itinerary_point_path(itinerary, point), remote: true, method: :delete, class: 'red-cross' %>
     <% end %>
@@ -11,7 +11,8 @@
   <div class="description" style="display: none">  
     Опиание: <%= point.description%>
     <br> 
-    Координаты:   <%= point.latitude %> <%= point.longitude %> 
+    Координаты:  
+    <%= point.latitude %>, <%= point.longitude %>
   </div>
   <br>
 </span>
