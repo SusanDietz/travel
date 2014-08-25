@@ -4,8 +4,8 @@ OAUTH_CREDENTIALS_PATH = Rails.root.join("config", "oauth.yml")
 OAUTH_CREDENTIALS = YAML.load_file(OAUTH_CREDENTIALS_PATH)[Rails.env]
 Devise.setup do |config|
   
-  config.omniauth :facebook, 776829875701410, accbaee1a00c866f3e8e8b8ef5e58a0a
-  config.omniauth :vkontakte, 4521833, xDbmmPRU9glacGXxlZW7
+  config.omniauth :facebook, "776829875701410", "accbaee1a00c866f3e8e8b8ef5e58a0a"
+  config.omniauth :vkontakte, "4521833", "xDbmmPRU9glacGXxlZW7"
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
