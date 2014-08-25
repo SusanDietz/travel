@@ -8,13 +8,14 @@
       = @itinerary.name
   .col-lg-3.text-right
     = link_to 'Вступить', participate_itinerary_path(@itinerary), class: 'btn btn-success' if can?(:participate, @itinerary)
+    = link_to 'Удалить маршрут', itinerary_path(@itinerary), method: :delete, class: 'btn btn-success' if can?(:destroy, @itinerary)
 = render "shared/points"
 %br
 %p.lead
   %b Описание:
   %blockquote= @itinerary.description
 
-%p.lead 
+%p.lead
   %b Участники
   = "(#{@itinerary.users.size})"
   %ul

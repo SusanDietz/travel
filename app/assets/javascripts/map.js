@@ -26,7 +26,12 @@ $( document ).ready(function() {
     var request = {
         origin: start,
         destination: end,
+<<<<<<< HEAD
         waypoints: waypoints, 
+=======
+        waypoints: waypoints,
+        optimizeWaypoints: true,
+>>>>>>> d5d6a22a645f881b1710066fc40a650ef55f7fcf
         travelMode: google.maps.TravelMode.DRIVING
     };
     directionsService.route(request, function(response, status) {
@@ -35,10 +40,12 @@ $( document ).ready(function() {
       }
     });
   };
-  
+
   google.maps.event.addListener(map, 'dblclick', function(event) {
-    var name = prompt('Name','Name here')
-    var description = prompt('Description','Description here');
+    if (window.location.pathname == '/itineraries')
+      return false;
+    var name = prompt('Назовите пункт маршрута','Имя')
+    var description = prompt('И добавьте небольшое описание','Описание');
     if  (description) {
       sentPoint = {
         name: name,
@@ -56,7 +63,7 @@ $( document ).ready(function() {
         success: (function(){
           description = '<div id="tag">' +name + description + '</div>';
           var infowindow = new google.maps.InfoWindow({
-            content: name + description 
+            content: name + description
           });
           var marker = new google.maps.Marker({
               position: event.latLng,
