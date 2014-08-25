@@ -1,25 +1,25 @@
 <div class="container center form-container">
-        <h2 class="form-signin-heading">Sign up</h2>
+        <h2 class="form-signin-heading">Зарегистрироваться</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :first_name %>
+  <div><%= f.label :Имя %>
   <%= f.text_field :first_name, autofocus: true %></div>
 
-  <div><%= f.label :last_name %>
+  <div><%= f.label :Фамилия %>
   <%= f.text_field :last_name, autofocus: true %></div>
 
   <div><%= f.label :email %>
   <%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.label :password %>
+  <div><%= f.label :Пароль %>
     <%= f.password_field :password, autocomplete: "off" %></div>
 
-  <div><%= f.label :password_confirmation %>
+  <div><%= f.label :Подтверждение %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-  <div><%= f.submit "Sign up", class: 'btn-primary' %></div>
+  <div><%= f.submit "Зарегистрироваться", class: 'btn-primary' %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>

@@ -1,6 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   protected
 	  def facebook
+	  	
 	  end
 
 	  def vkontakte

@@ -8,6 +8,7 @@ Travel::Application.routes.draw do
 
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  resources :users, :only => [:index, :destroy]
   resources :leads
   resources :itineraries do
     resources :points
@@ -68,7 +69,7 @@ Travel::Application.routes.draw do
   # just remember to delete public/index.html.
 
   root :to => 'itineraries#index'
-
+  root :to => 'users#index'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

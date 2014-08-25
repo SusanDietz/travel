@@ -2,9 +2,10 @@
 # Many of these configuration options can be set straight in your model.
 OAUTH_CREDENTIALS_PATH = Rails.root.join("config", "oauth.yml")
 OAUTH_CREDENTIALS = YAML.load_file(OAUTH_CREDENTIALS_PATH)[Rails.env]
-FB_KEYS = OAUTH_CREDENTIALS['facebook']
-VK_KEYS = OAUTH_CREDENTIALS['vkontakte']
 Devise.setup do |config|
+  
+  config.omniauth :facebook, 776829875701410, accbaee1a00c866f3e8e8b8ef5e58a0a
+  config.omniauth :vkontakte, 4521833, xDbmmPRU9glacGXxlZW7
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -275,8 +276,6 @@ Devise.setup do |config|
   # up on your models and hooks.
 #   короче замени там на config.omniauth :facebook, FB_KEYS['app_id'], FB_KEYS['app_secret']
 # config.omniauth :vkontakte, VK_KEYS['app_id'], VK_KEYS['app_secret'], {:scope => VK_KEYS['app_permissions']}
-  config.omniauth :facebook, FB_KEYS['app_id'], FB_KEYS['app_secret']
-  config.omniauth :vkontakte, VK_KEYS[:app_id], VK_KEYS[:app_secret], {:scope => VK_KEYS[:app_permissions]}
   #secure_image_url: true
   # config.omniauth :facebook, '499785570155350', 'a999e09db2435c78d5f39bcb67c2732d', 
   # 
