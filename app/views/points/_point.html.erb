@@ -1,6 +1,6 @@
 <br> 
-<span class='point' id="<%=point.id%>">
-  &nbsp;
+<span class='point' id="<%=point.id%>" >
+
   <span class='label label-success label-90'>
     <botton class = "pointbot" lat="<%= point.latitude %>", lng = "<%= point.longitude %>">  <%= point.name%> </botton>
     <% if can? :destroy,  @itinerary %>
@@ -9,10 +9,9 @@
   </span>
   <br>
   <div class="description" style="display: none">  
-    Опиание: <%= point.description%>
+    &ensp; <%= point.description%>
     <br> 
-    Координаты:  
-    <%= point.latitude %>, <%= point.longitude %>
+  &nbsp;
   </div>
   <br>
 </span>

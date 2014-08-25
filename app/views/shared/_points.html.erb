@@ -10,15 +10,19 @@ window.gmap_points = <%= raw@hash.to_json %>
 </div>
 
 <script>
-$( ".pointbot" ).mouseover (function() {
-  $(this).parent().nextAll(".description").slideToggle();
+$( ".pointbot" ).mouseenter(function() {
+  $(this).parent().nextAll(".description").fadeIn();
+
     window.as = $( this ).attr("lat"),
     window.asd = $( this ).attr("lng"),
     
   $(function () {
     var position = new google.maps.LatLng(as, asd);
     map.panTo(position);
-    map.setZoom(18);
+    map.setZoom(20);
   });
+});
+$( ".pointbot" ).mouseleave(function() {
+  $(this).parent().nextAll(".description").fadeOut();
 });
 </script>

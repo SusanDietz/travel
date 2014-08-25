@@ -26,8 +26,7 @@ $( document ).ready(function() {
     var request = {
         origin: start,
         destination: end,
-        waypoints: waypoints,
-        optimizeWaypoints: true, 
+        waypoints: waypoints, 
         travelMode: google.maps.TravelMode.DRIVING
     };
     directionsService.route(request, function(response, status) {
