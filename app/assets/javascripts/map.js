@@ -27,7 +27,7 @@ $( document ).ready(function() {
         origin: start,
         destination: end,
         waypoints: waypoints,
-        optimizeWaypoints: true, 
+        optimizeWaypoints: true,
         travelMode: google.maps.TravelMode.DRIVING
     };
     directionsService.route(request, function(response, status) {
@@ -36,8 +36,10 @@ $( document ).ready(function() {
       }
     });
   };
-  
+
   google.maps.event.addListener(map, 'dblclick', function(event) {
+    if (window.location.pathname == '/itineraries')
+      return false;
     var name = prompt('Name','Name here')
     var description = prompt('Description','Description here');
     if  (description) {
@@ -57,7 +59,7 @@ $( document ).ready(function() {
         success: (function(){
           description = '<div id="tag">' +name + description + '</div>';
           var infowindow = new google.maps.InfoWindow({
-            content: name + description 
+            content: name + description
           });
           var marker = new google.maps.Marker({
               position: event.latLng,
