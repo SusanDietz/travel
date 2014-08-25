@@ -40,8 +40,8 @@ $( document ).ready(function() {
   google.maps.event.addListener(map, 'dblclick', function(event) {
     if (window.location.pathname == '/itineraries')
       return false;
-    var name = prompt('Name','Name here')
-    var description = prompt('Description','Description here');
+    var name = prompt('Назовите пункт маршрута','Имя')
+    var description = prompt('И добавьте небольшое описание','Описание');
     if  (description) {
       sentPoint = {
         name: name,

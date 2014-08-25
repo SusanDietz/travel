@@ -1,7 +1,7 @@
 = form_for @comment, url: itinerary_comments_path(@itinerary), method: :post do |f|
-  = f.label :title
+  = f.label :Заголовок
   = f.text_field :title, class: 'form-control'
-  = f.label :comment
+  = f.label :Комментарий
   = f.text_area :comment, class: 'form-control', rows: '6'
   %br
-  = f.submit class: 'btn btn-info'
+  = f.submit class: 'btn btn-info', value: 'Оставить комментарий'
