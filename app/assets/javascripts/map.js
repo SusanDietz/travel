@@ -32,6 +32,7 @@ $( document ).ready(function() {
     };
     directionsService.route(request, function(response, status) {
       if (status == google.maps.DirectionsStatus.OK) {
+        console.log(response);
         directionsDisplay.setDirections(response);
       }
     });
