@@ -47,10 +47,10 @@ $( document ).ready(function() {
       sentPoint = {
         name: name,
         description: description,
-        latitude: event.latLng.d,
-        longitude: event.latLng.e
+        latitude: event.latLng.k,
+        longitude: event.latLng.A
       }
-
+      console.log(sentPoint);
       $.ajax({
         type: 'post',
         url: window.location+'/points#create',
@@ -74,6 +74,6 @@ $( document ).ready(function() {
       })
     }
   })
-})
+});
 
 
